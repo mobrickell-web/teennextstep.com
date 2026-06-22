@@ -1,0 +1,29 @@
+[33mcommit afbc41c42abcfc247c0f3c9cc515279b8e23391c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mbiz-ui-updates[m[33m, [m[1;31morigin/biz-ui-updates[m[33m)[m
+Author: Muhammad Huzaifa <muhammad.huzaifa@cyngro.com>
+Date:   Fri May 22 12:55:48 2026 -0700
+
+    feat : onboarding register page , set layout and routing structure
+
+[33mcommit 2da5e83cc7fbdc27061020a257f0b2922f2ab315[m
+Author: Muhammad Huzaifa <muhammad.huzaifa@cyngro.com>
+Date:   Fri May 22 09:33:08 2026 -0700
+
+    feat : solve ui conflicts , make reuseable ui flow
+
+[33mcommit 09659cf06e00b5ffd5b129e3d33d2e85ee2ba0a4[m
+Author: Muhammad Huzaifa <muhammad.huzaifa@cyngro.com>
+Date:   Thu May 21 11:44:35 2026 -0700
+
+    feat : solve error
+
+[33mcommit 376ffd3ba41ec581347ec09768caa7c4adc35acc[m
+Author: Muhammad Huzaifa <muhammad.huzaifa@cyngro.com>
+Date:   Thu May 21 11:41:44 2026 -0700
+
+    feat: auth pages login , signup, reset-account , forget-password, verify-otp pages
+
+[33mcommit e1c08410ad35311be3c893d5b06ab61b8ca678ad[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: sarfaraz-cyngro <muhammad.sarfaraz@cyngro.com>
+Date:   Thu May 21 00:32:44 2026 +0500
+
+    first commit
