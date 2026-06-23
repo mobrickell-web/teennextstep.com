@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, type KeyboardEvent } from "react";
 import { X } from "lucide-react";
 
+import { LANDING_SECTION_HEADING_PRIMARY } from "@/components/landing/landing-styles";
 import { LandingCtaBlock } from "@/components/landing/LandingCtaBlock";
 import {
   Dialog,
@@ -50,6 +51,7 @@ export default function WhyDifferentSection() {
   const [activePopup, setActivePopup] = useState<LimitationPopup | null>(null);
 
   return (
+    <>
     <section
       id="why-us"
       aria-labelledby="why-different-heading"
@@ -76,7 +78,7 @@ export default function WhyDifferentSection() {
                 id="why-different-heading"
                 variant="h3"
                 as="h2"
-                className="text-[26px] font-[800] leading-tight text-primary sm:text-[30px] lg:text-[44px]"
+                className={LANDING_SECTION_HEADING_PRIMARY}
               >
                 <span className="block">{intro.heading.line1}</span>
                 <span className="block">{intro.heading.line2}</span>
@@ -139,7 +141,7 @@ export default function WhyDifferentSection() {
               <Typography
                 variant="h3"
                 as="h3"
-                className="text-[26px] font-[800] leading-tight text-primary sm:text-[30px] lg:text-[34px]"
+                className={LANDING_SECTION_HEADING_PRIMARY}
               >
                 {differentiator.heading}
               </Typography>
@@ -194,8 +196,10 @@ export default function WhyDifferentSection() {
           />
         </div>
       </div>
+    </section>
 
       <Dialog
+        modal={false}
         open={activePopup !== null}
         onOpenChange={(open) => {
           if (!open) {
@@ -203,7 +207,10 @@ export default function WhyDifferentSection() {
           }
         }}
       >
-        <DialogContent className="z-[100] max-w-[min(640px,calc(100%-2rem))] gap-0 rounded-[12px] border-0 bg-white p-6 shadow-lg ring-0 sm:max-w-[640px] sm:p-8">
+        <DialogContent
+          className="z-[100] max-w-[min(640px,calc(100%-2rem))] gap-0 rounded-[12px] border-0 bg-white p-6 shadow-lg ring-0 sm:max-w-[640px] sm:p-8"
+          onInteractOutside={() => setActivePopup(null)}
+        >
           {activePopup ? (
             <>
               <DialogTitle className="pr-10 text-left text-[clamp(18px,2.2vw,24px)] font-[800] leading-[131%] text-primary">
@@ -223,6 +230,6 @@ export default function WhyDifferentSection() {
           ) : null}
         </DialogContent>
       </Dialog>
-    </section>
+    </>
   );
 }

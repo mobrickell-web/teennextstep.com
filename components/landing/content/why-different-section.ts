@@ -1,6 +1,6 @@
 import { SUPER_SECTION_CONTENT } from "./super-section";
 
-export const WHY_DIFFERENT_IMAGE = "/images/landing-page/why-different-image.png";
+export const WHY_DIFFERENT_IMAGE = "/images/landing-page/why-different-image.jpg";
 export const SETS_ICON = "/images/landing-page/sets-icon.svg";
 
 export const WHY_DIFFERENT_IMAGE_SIZE = {

@@ -20,7 +20,7 @@ export default function ParentInsightSidebar({
   return (
     <aside
       className={cn(
-        "fixed left-0 top-0 z-10 grid h-svh w-[var(--parent-insight-sidebar-width)] max-lg:hidden grid-rows-[auto_auto_minmax(0,1fr)] overflow-hidden bg-[#EAEAEA] px-5 pb-4 pt-[calc(4rem+1.5rem)] lg:pt-[calc(4.5rem+1.5rem)]",
+        "fixed left-0 top-0 z-10 grid h-svh w-[var(--parent-insight-sidebar-width)] max-lg:hidden grid-rows-[auto_auto_minmax(0,1fr)] overflow-hidden bg-[#EAEAEA] px-5 pb-4 pt-[calc(var(--site-navbar-height)+1.5rem)]",
         className,
       )}
     >

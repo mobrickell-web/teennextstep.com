@@ -10,6 +10,13 @@ export { default as DifferentPathsSection } from "./DifferentPathsSection";
 export { default as ParentsDiscoverSection } from "./ParentsDiscoverSection";
 export { default as FaqSection } from "./FaqSection";
 export { LandingCtaBlock } from "./LandingCtaBlock";
+export { LandingSectionNumber } from "./LandingSectionNumber";
+export {
+  LANDING_SECTION_HEADING_CLASS,
+  LANDING_SECTION_HEADING_PRIMARY,
+  LANDING_SECTION_HEADING_SIZE,
+  LANDING_SECTION_HEADING_WHITE,
+} from "./landing-styles";
 export * from "./content/super-section";
 export * from "./content/teenage-years-section";
 export * from "./content/why-different-section";

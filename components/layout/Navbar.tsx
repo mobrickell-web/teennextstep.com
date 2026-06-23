@@ -77,7 +77,7 @@ function DesktopNavDropdown({
   hash: string;
 }) {
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger
         className={cn(
           navLinkClass,
@@ -205,12 +205,17 @@ function MobileNavItem({
 
 function LoginMenu({ className }: { className?: string }) {
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger className={cn(loginTriggerClassName, className)}>
         Login
         <ChevronDown className="size-4 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-40">
+      <DropdownMenuContent
+        align="end"
+        sideOffset={8}
+        collisionPadding={16}
+        className="w-auto min-w-40 max-w-[calc(100vw-2rem)]"
+      >
         {LOGIN_MENU_ITEMS.map((item) => (
           <DropdownMenuItem key={item.href} asChild>
             <Link href={item.href}>{item.label}</Link>
@@ -226,7 +231,7 @@ function DashboardRoleMenu({ className }: { className?: string }) {
   const logout = useAuthStore((state) => state.logout);
 
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger className={cn(loginTriggerClassName, className)}>
         Login
         <ChevronDown className="size-4 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
@@ -234,7 +239,8 @@ function DashboardRoleMenu({ className }: { className?: string }) {
       <DropdownMenuContent
         align="end"
         sideOffset={10}
-        className="w-max min-w-[198px] gap-[10px] rounded-none border-0 bg-[#0000007A] p-0 px-[22px] py-[17px] text-white shadow-none backdrop-blur-[4px]"
+        collisionPadding={16}
+        className="w-auto min-w-[198px] max-w-[calc(100vw-2rem)] gap-[10px] rounded-none border-0 bg-[#0000007A] p-0 px-[22px] py-[17px] text-white shadow-none backdrop-blur-[4px]"
       >
         {DASHBOARD_ROLE_ITEMS.map((item) => {
           const itemClassName =
@@ -286,7 +292,7 @@ function MobileNav({
         <Button
           variant="ghost"
           size="icon"
-          className="text-white hover:bg-white/10 hover:text-white xl:hidden"
+          className="shrink-0 text-white hover:bg-white/10 hover:text-white xl:hidden"
           aria-label="Open menu"
         >
           <Menu />
@@ -296,7 +302,7 @@ function MobileNav({
       <SheetContent side="right" className="w-full max-w-sm gap-0 p-0">
         <SheetHeader className="border-b border-border px-5 py-4">
           <SheetTitle className="sr-only">Main navigation</SheetTitle>
-          <Logo href="/home" />
+          <Logo href="/" />
         </SheetHeader>
 
         <nav
@@ -374,17 +380,18 @@ const Navbar = () => {
 
   return (
     <header
+      data-site-navbar
       className={cn(
-        "sticky top-0 z-50 w-full border-b border-white/10 bg-primary text-primary-foreground transition-shadow duration-300",
+        "fixed inset-x-0 top-0 z-50 w-full overflow-x-clip border-b border-white/10 bg-primary text-primary-foreground transition-shadow duration-300",
         scrolled && "shadow-md",
       )}
     >
-      <div className="flex h-16 w-full items-center gap-3 px-4 sm:px-6 lg:h-[4.5rem] lg:gap-4 lg:px-8 xl:px-10">
-        <Logo href="/home" priority />
+      <div className="flex h-[var(--site-navbar-height)] w-full items-center gap-3 px-4 sm:px-6 lg:gap-4 lg:px-8 xl:px-10">
+        <Logo href="/" priority className="min-w-0 shrink-0" />
 
         <DesktopNav pathname={pathname} hash={hash} />
 
-        <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-3">
+        <div className="ml-auto flex min-w-0 shrink-0 items-center gap-2 sm:gap-3">
           {isDashboard ? (
             <DashboardRoleMenu className="hidden sm:inline-flex" />
           ) : (

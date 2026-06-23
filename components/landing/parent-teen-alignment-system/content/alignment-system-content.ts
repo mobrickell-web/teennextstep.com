@@ -20,7 +20,7 @@ export const ALIGNMENT_SYSTEM_CONTENT = {
       "Personalized Roadmap Guidance",
     ],
     image: {
-      src: "/images/landing-page/why-parents-trust-image.png",
+      src: "/images/landing-page/free-parent-insight.png",
       alt: "Parent and teen reviewing results together on a laptop",
     },
   },
@@ -65,7 +65,7 @@ export const ALIGNMENT_SYSTEM_CONTENT = {
     closing:
       "You are leading the process — but you are not doing it alone.",
     image: {
-      src: "/images/landing-page/why-different-image.png",
+      src: "/images/landing-page/guided-support-include.png",
       alt: "Ambassador supporting a parent and teen during a guided session",
     },
   },
@@ -103,8 +103,8 @@ export const ALIGNMENT_SYSTEM_CONTENT = {
   },
   ctas: {
     primary: {
-      label: "Start Parent-Teen Alignment System — $1497",
-      href: "/signup?plan=alignment-system",
+      label: "Start Parent-Teen Alignment System — $1487",
+      href: "/secure-your-teens-next-step",
       caption: "Full system • Ambassador Support • Personalized roadmap",
     },
     secondary: {

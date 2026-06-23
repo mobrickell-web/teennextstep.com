@@ -9,23 +9,23 @@ export type MainNavItem = MainNavLink & {
 
 /** Public marketing site navigation — landing page sections */
 export const MAIN_NAV_ITEMS: MainNavItem[] = [
-  { label: "Home", href: "/home" },
-  { label: "Why Us", href: "/home#why-us" },
-  { label: "Why Parents Trust Us", href: "/home#why-parents-trust-us" },
-  { label: "Our 4 Steps", href: "/home#our-4-steps" },
+  { label: "Home", href: "/" },
+  { label: "Why Us", href: "/#why-us" },
+  { label: "Why Parents Trust Us", href: "/#why-parents-trust-us" },
+  { label: "Our 4 Steps", href: "/#four-step-process" },
   { label: "What's Included", href: "/parent-teen-alignment-system" },
   {
     label: "If Parent & Teen Paths Differ",
-    href: "/home#if-parent-teen-paths-differ",
+    href: "/#if-parent-teen-paths-differ",
   },
   {
     label: "More",
-    href: "/home#more",
+    href: "/#more",
     children: [
-      { label: "FAQ", href: "/home#faq" },
-      { label: "Contact Us", href: "/home#contact" },
-      { label: "Privacy Policy", href: "/home#privacy" },
-      { label: "Terms of Service", href: "/home#terms" },
+      { label: "FAQ", href: "/#faq" },
+      { label: "Contact Us", href: "/contact" },
+      { label: "Privacy Policy", href: "/#privacy" },
+      { label: "Terms of Service", href: "/#terms" },
     ],
   },
 ];
@@ -63,7 +63,7 @@ export const DASHBOARD_ROLE_ITEMS: DashboardRoleItem[] = [
 
 /** Outlined login trigger — white border on primary navbar */
 export const loginTriggerClassName =
-  "group inline-flex h-12 items-center justify-center gap-2 rounded-sm border border-white bg-transparent px-5  text-base font-medium text-white transition-colors outline-none hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/30 data-[state=open]:bg-white/10";
+  "group inline-flex h-12 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-sm border border-white bg-transparent px-5 text-base font-medium text-white transition-colors outline-none hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/30 data-[state=open]:bg-white/10";
 
 export function isNavLinkActive(
   pathname: string,

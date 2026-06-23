@@ -2,6 +2,7 @@ import { ReactNode, Suspense } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import PageWrapper from './PageWrapper';
+import BackToTopButton from './BackToTopButton';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -23,14 +24,27 @@ export default function MainLayout({
   fullWidth = false,
 }: MainLayoutProps) {
   return (
-    <div className="flex min-h-screen w-full flex-col overflow-x-hidden">
+    <div className="flex min-h-screen w-full flex-col">
       {showNavbar && (
-        <Suspense fallback={<div className="h-16 shrink-0 bg-primary border-b border-white/10 lg:h-[4.5rem]" />}>
-          <Navbar />
-        </Suspense>
+        <>
+          <Suspense
+            fallback={
+              <>
+                <div
+                  className="fixed inset-x-0 top-0 z-50 h-[var(--site-navbar-height)] border-b border-white/10 bg-primary"
+                  aria-hidden
+                />
+                <div className="site-navbar-spacer" aria-hidden />
+              </>
+            }
+          >
+            <Navbar />
+          </Suspense>
+          <div className="site-navbar-spacer" aria-hidden />
+        </>
       )}
 
-      <main className={`flex-1 w-full`}>
+      <main className="flex-1 w-full overflow-x-hidden">
         {fullWidth ? (
           <div className="w-full">{children}</div>
         ) : (
@@ -39,6 +53,10 @@ export default function MainLayout({
       </main>
 
       {showFooter && <Footer />}
+
+      <Suspense fallback={null}>
+        <BackToTopButton />
+      </Suspense>
     </div>
   );
 }

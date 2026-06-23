@@ -1,4 +1,4 @@
-export const WHY_PARENTS_TRUST_IMAGE = "/images/landing-page/why-parents-trust-image.png";
+export const WHY_PARENTS_TRUST_IMAGE = "/images/landing-page/why-parents-trust.png";
 
 export const WHY_PARENTS_IMAGE_SIZE = {
   width: 688,

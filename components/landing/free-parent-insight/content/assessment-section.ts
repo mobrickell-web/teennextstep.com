@@ -113,7 +113,7 @@ export const PARENT_INSIGHT_ASSESSMENT_CONTENT = {
     submitLabel: "Get My FREE Parent Insight Results Instantly",
     privacyText: "We respect your privacy. No spam, ever.",
     privacyLinkLabel: "View our privacy policy.",
-    privacyHref: "/home#privacy",
+    privacyHref: "/#privacy",
     image: {
       src: PARENT_INSIGHT_DASHBOARD_IMAGE,
       alt: "Parent Insight Dashboard displayed on a laptop",

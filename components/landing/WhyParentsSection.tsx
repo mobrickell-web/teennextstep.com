@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { LandingSectionNumber } from "@/components/landing/LandingSectionNumber";
+import { LANDING_SECTION_HEADING_PRIMARY } from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
 
 import {
@@ -44,12 +46,7 @@ export default function WhyParentsSection() {
       className="relative w-full overflow-hidden bg-[#EAEAEA] py-12 sm:py-14 lg:py-16"
     >
       <div className="relative w-full px-4 sm:px-6 lg:px-8 xl:px-10">
-        <span
-          aria-hidden
-          className="pointer-events-none absolute -top-10 left-2 select-none font-semibold leading-none text-[#FFFFFF4F] text-[18px]  sm:-top-11 sm:font-extrabold sm:text-[clamp(4.5rem,11vw,107px)] sm:left-3 lg:left-4"
-        >
-          {sectionNumber}
-        </span>
+        <LandingSectionNumber>{sectionNumber}</LandingSectionNumber>
 
         <div className="relative z-10 grid items-start gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           <div
@@ -69,7 +66,7 @@ export default function WhyParentsSection() {
             id="why-parents-heading"
             variant="h2"
             as="h2"
-            className="order-2 mx-auto max-w-full text-center text-[clamp(16px,2.6vw,34px)] font-[800] leading-tight whitespace-nowrap text-primary lg:col-span-2 lg:row-start-1"
+            className={`order-2 mx-auto max-w-full whitespace-nowrap text-center ${LANDING_SECTION_HEADING_PRIMARY} lg:col-span-2 lg:row-start-1`}
           >
             <span className="inline">{heading.line1}</span>{" "}
             <span className="inline">{heading.line2}</span>

@@ -7,26 +7,26 @@ export const FOOTER_DISCLAIMER = {
 };
 
 export const FOOTER_QUICK_LINKS = [
-  { label: "Home", href: "/home#hero" },
-  { label: "Why Us", href: "/home#why-us" },
-  { label: "Why Parents Trust Us", href: "/home#why-parents-trust-us" },
-  { label: "Our 4 Steps", href: "/home#four-step-process" },
+  { label: "Home", href: "/#hero" },
+  { label: "Why Us", href: "/#why-us" },
+  { label: "Why Parents Trust Us", href: "/#why-parents-trust-us" },
+  { label: "Our 4 Steps", href: "/#four-step-process" },
   { label: "What's Included", href: "/parent-teen-alignment-system" },
-  { label: "A Small Investment", href: "/home#small-investment" },
-  { label: "If Parent & Teen Paths Differ", href: "/home#different-paths" },
-  { label: "What Parents Often Discover", href: "/home#parents-discover" },
-  { label: "Blog", href: "/home#faq" },
-  { label: "FAQ's", href: "/home#faq" },
+  { label: "A Small Investment", href: "/#small-investment" },
+  { label: "If Parent & Teen Paths Differ", href: "/#different-paths" },
+  { label: "What Parents Often Discover", href: "/#parents-discover" },
+  { label: "Blog", href: "/#faq" },
+  { label: "FAQ's", href: "/#faq" },
   { label: "Teen Insight Overview", href: "/signup" },
 ] as const;
 
 export const FOOTER_SECONDARY_LINKS = [
   { label: "TEEN NEXT STEP Overview", href: "/parent-teen-alignment-system" },
-  { label: "Our Team", href: "/home#contact" },
-  { label: "Client Referral Program", href: "/home#contact" },
-  { label: "Careers", href: "/home#contact" },
-  { label: "Terms & Privacy", href: "/home#privacy" },
-  { label: "Contact Us", href: "/home#contact" },
+  { label: "Our Team", href: "/#contact" },
+  { label: "Client Referral Program", href: "/#contact" },
+  { label: "Careers", href: "/#contact" },
+  { label: "Terms & Privacy", href: "/#privacy" },
+  { label: "Contact Us", href: "/#contact" },
 ] as const;
 
 export const FOOTER_SOCIAL_LINKS = [

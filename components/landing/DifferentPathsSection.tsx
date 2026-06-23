@@ -1,6 +1,9 @@
 import Image from "next/image";
 
+import { LandingSectionNumber } from "@/components/landing/LandingSectionNumber";
+import { LANDING_SECTION_HEADING_SIZE_SM } from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
+import { cn } from "@/lib/utils";
 
 import {
   DIFFERENT_PATHS_SECTION_CONTENT,
@@ -36,12 +39,7 @@ export default function DifferentPathsSection() {
       className="relative w-full overflow-hidden bg-white py-12 sm:py-14 lg:py-16"
     >
       <div className="relative w-full px-4 sm:px-6 lg:px-8 xl:px-10">
-        <span
-          aria-hidden
-          className="pointer-events-none absolute -top-10 left-2 select-none font-semibold leading-none text-[#EAEAEA7D] text-[18px] sm:-top-11 sm:font-extrabold sm:text-[clamp(4.5rem,11vw,107px)] sm:left-3 lg:left-4 "
-        >
-          {sectionNumber}
-        </span>
+        <LandingSectionNumber>{sectionNumber}</LandingSectionNumber>
 
         <div className="relative z-10 md:pl-[100px] xl:pl-[120px]">
           <div className="grid items-stretch gap-8 md:grid-cols-2 md:gap-12 xl:gap-16">
@@ -63,7 +61,11 @@ export default function DifferentPathsSection() {
                 id="different-paths-heading"
                 variant="h2"
                 as="h2"
-                className="text-[13px] font-[800] leading-[131%] text-primary sm:text-[clamp(28px,4vw,45px)]"
+                className={cn(
+                  "text-[13px] font-[800] leading-[131%] text-primary",
+                  LANDING_SECTION_HEADING_SIZE_SM,
+                  "sm:font-[800] sm:leading-tight",
+                )}
               >
                 <span className="inline md:block">{heading.line1} </span>
                 <span className="inline md:block">{heading.line2}</span>

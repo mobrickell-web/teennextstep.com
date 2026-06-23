@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { LandingSectionNumber } from "@/components/landing/LandingSectionNumber";
+import { LANDING_SECTION_HEADING_PRIMARY } from "@/components/landing/landing-styles";
 import { LandingCtaBlock } from "@/components/landing/LandingCtaBlock";
 import { Typography } from "@/components/ui/typography";
 
@@ -16,18 +18,13 @@ export default function FourStepProcessSection() {
       className="relative w-full overflow-hidden  bg-[#D2D0D0] py-12 sm:py-14 lg:py-16"
     >
       <div className="relative w-full px-4 sm:px-6 lg:px-8 xl:px-10">
-        <span
-          aria-hidden
-          className="pointer-events-none absolute -top-10 left-2 select-none font-semibold leading-none text-[#FFFFFF4F] text-[18px] [text-shadow:0px_4px_19.1px_#00000024] sm:-top-11 sm:font-extrabold sm:text-[clamp(4.5rem,11vw,107px)] sm:left-3 lg:left-4"
-        >
-          {sectionNumber}
-        </span>
+        <LandingSectionNumber>{sectionNumber}</LandingSectionNumber>
 
         <Typography
           id="four-step-process-heading"
           variant="h2"
           as="h2"
-          className="relative z-10 text-center text-[clamp(24px,4vw,40px)] font-[800] leading-tight text-primary"
+          className={`relative z-10 text-center ${LANDING_SECTION_HEADING_PRIMARY}`}
         >
           {heading}
         </Typography>

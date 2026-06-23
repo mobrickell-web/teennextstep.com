@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 
+import { LandingSectionNumber } from "@/components/landing/LandingSectionNumber";
+import { LANDING_SECTION_HEADING_WHITE } from "@/components/landing/landing-styles";
 import { LandingCtaBlock } from "@/components/landing/LandingCtaBlock";
 import { Typography } from "@/components/ui/typography";
 
@@ -41,19 +43,16 @@ export default function ParentsDiscoverSection() {
       </div>
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-10">
-        <span
-          aria-hidden
-          className="pointer-events-none absolute -top-10 left-2 select-none font-semibold leading-none text-[#FFFFFF4F] text-[18px] [text-shadow:0px_4px_19.1px_#00000024] sm:top-4 sm:font-extrabold sm:text-[clamp(4.5rem,11vw,107px)] sm:left-3 lg:left-4"
-        >
+        <LandingSectionNumber onDark className="sm:top-4">
           {sectionNumber}
-        </span>
+        </LandingSectionNumber>
 
         <div className="flex max-w-2xl flex-col gap-6 lg:ml-[130px] lg:min-h-[640px] lg:justify-center lg:py-16 xl:min-h-[700px]">
           <Typography
             id="parents-discover-heading"
             variant="h2"
             as="h2"
-            className="text-[clamp(24px,4vw,32px)] font-[800] leading-[131%] text-white lg:text-[36px] xl:text-[47.79px]"
+            className={`leading-[131%] ${LANDING_SECTION_HEADING_WHITE}`}
           >
             {heading}
           </Typography>

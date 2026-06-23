@@ -1,3 +1,5 @@
+import { LandingSectionNumber } from "@/components/landing/LandingSectionNumber";
+import { LANDING_SECTION_HEADING_PRIMARY } from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
 
 import { TEENAGE_YEARS_SECTION_CONTENT } from "@/components/landing/content/teenage-years-section";
@@ -12,19 +14,14 @@ export default function TeenageYearsSection() {
       className="relative w-full overflow-hidden border-t border-primary bg-[#efefef] py-12 sm:py-14 lg:py-16"
     >
       <div className="relative w-full px-4 sm:px-6 lg:px-8 xl:px-10">
-        <span
-          aria-hidden
-          className="pointer-events-none absolute -top-10 left-2 select-none font-semibold leading-none text-[#FFFFFF4F] text-[18px] [text-shadow:0px_4px_19.1px_#00000024] sm:-top-11 sm:font-extrabold sm:text-[clamp(4.5rem,11vw,107px)] sm:left-3 lg:left-4"
-        >
-          {sectionNumber}
-        </span>
+        <LandingSectionNumber>{sectionNumber}</LandingSectionNumber>
 
         <div className="relative z-10 mx-auto flex w-full flex-col items-center gap-3 text-center sm:gap-4">
           <Typography
             id="teenage-years-heading"
             variant="h2"
             as="h2"
-            className="max-w-full text-[clamp(14px,2.4vw,40px)] font-[800] leading-tight whitespace-nowrap text-primary"
+            className={`max-w-full whitespace-nowrap ${LANDING_SECTION_HEADING_PRIMARY}`}
           >
             {heading}
           </Typography>

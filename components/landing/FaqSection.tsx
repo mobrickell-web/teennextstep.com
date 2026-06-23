@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, Plus } from "lucide-react";
 
+import { LandingSectionNumber } from "@/components/landing/LandingSectionNumber";
+import { LANDING_SECTION_HEADING_PRIMARY } from "@/components/landing/landing-styles";
 import { LandingCtaBlock } from "@/components/landing/LandingCtaBlock";
 import {
   Accordion,
@@ -26,19 +28,16 @@ export default function FaqSection() {
       className="relative w-full overflow-hidden bg-white py-12 sm:py-14 lg:py-16"
     >
       <div className="relative w-full px-4 sm:px-6 lg:px-8 xl:px-10">
-        <span
-          aria-hidden
-          className="pointer-events-none absolute -top-10 left-2 select-none font-semibold leading-none text-[#EAEAEA7D] text-[18px]  sm:-top-15 sm:font-extrabold sm:text-[clamp(4.5rem,11vw,107px)] sm:left-3 lg:left-4"
-        >
+        <LandingSectionNumber className="sm:-top-15">
           {sectionNumber}
-        </span>
+        </LandingSectionNumber>
 
         <div className="relative z-10 flex flex-col items-center gap-2 text-center">
           <Typography
             id="faq-insight-heading"
             variant="h2"
             as="h2"
-            className="text-[clamp(24px,4vw,47.79px)] font-[800] leading-[131%] text-primary"
+            className={`leading-[131%] ${LANDING_SECTION_HEADING_PRIMARY}`}
           >
             {heading}
           </Typography>
@@ -99,19 +98,16 @@ export default function FaqSection() {
         </div>
 
         <div className="relative mt-14 lg:mt-20">
-          <span
-            aria-hidden
-            className="pointer-events-none absolute -top-8 left-2 select-none font-semibold leading-none text-[#EAEAEA] text-[18px]  sm:-top-16 sm:font-extrabold sm:text-[clamp(4.5rem,11vw,107px)] sm:left-3 lg:-left-8"
-          >
+          <LandingSectionNumber className="-top-8 sm:-top-16 lg:-left-8">
             {faq.sectionNumber}
-          </span>
+          </LandingSectionNumber>
         </div>
 
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center gap-8">
           <Typography
             variant="h2"
             as="h2"
-            className="text-center text-[clamp(24px,4vw,47.79px)] font-[800] leading-[131%] text-primary"
+            className={`text-center leading-[131%] ${LANDING_SECTION_HEADING_PRIMARY}`}
           >
             {faq.heading}
           </Typography>

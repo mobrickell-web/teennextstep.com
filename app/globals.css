@@ -298,6 +298,50 @@
   display: none;
 }
 
+/* Landing page — decorative section numbers (watermark behind headings) */
+.landing-section-number {
+  color: rgb(24 46 91 / 45%);
+  text-shadow: 0 4px 19.1px rgb(0 0 0 / 18%);
+}
+
+.landing-section-number--on-dark {
+  color: rgb(255 255 255 / 55%);
+  text-shadow: 0 4px 19.1px rgb(0 0 0 / 28%);
+}
+
+/* Site header — fixed navbar height (spacer + dashboard sidebar offset) */
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+:root {
+  --site-navbar-height: 4rem;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --site-navbar-height: 4.5rem;
+  }
+}
+
+.site-navbar-spacer {
+  height: var(--site-navbar-height);
+  flex-shrink: 0;
+}
+
+/* Modals lock scroll via react-remove-scroll; gutter + overflow-y already reserve scrollbar space */
+html[data-scroll-locked],
+body[data-scroll-locked] {
+  --removed-body-scroll-bar-size: 0px !important;
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+
+body[data-scroll-locked] [data-site-navbar] {
+  padding-right: 0;
+}
+
 /* Parent insight dashboard — fixed sidebar width (content uses matching margin) */
 :root {
   --parent-insight-sidebar-width: 280px;

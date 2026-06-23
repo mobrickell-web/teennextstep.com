@@ -14,6 +14,21 @@ type LandingCtaBlockProps = {
   captionClassName?: string;
 };
 
+const ctaLabelClassName = (
+  variant: LandingCtaBlockProps["variant"],
+  theme: LandingCtaBlockProps["theme"],
+  labelClassName?: string,
+) =>
+  cn(
+    "inline-flex w-fit min-h-[50px] items-center justify-center rounded-lg px-4 py-3 text-center text-sm font-semibold leading-snug transition-colors sm:text-base",
+    variant === "primary"
+      ? "bg-secondary text-white hover:bg-secondary/90"
+      : theme === "light"
+        ? "border border-primary bg-white text-primary hover:bg-primary/5"
+        : "border border-white bg-transparent text-white hover:bg-white/10",
+    labelClassName,
+  );
+
 export function LandingCtaBlock({
   href,
   label,
@@ -24,6 +39,8 @@ export function LandingCtaBlock({
   labelClassName,
   captionClassName,
 }: LandingCtaBlockProps) {
+  const isPlaceholder = href === "#";
+
   return (
     <div
       className={cn(
@@ -31,20 +48,22 @@ export function LandingCtaBlock({
         className,
       )}
     >
-      <Link
-        href={href}
-        className={cn(
-          "inline-flex w-fit min-h-[50px] items-center justify-center rounded-lg px-4 py-3 text-center text-sm font-semibold leading-snug transition-colors sm:text-base",
-          variant === "primary"
-            ? "bg-secondary text-white hover:bg-secondary/90"
-            : theme === "light"
-              ? "border border-primary bg-white text-primary hover:bg-primary/5"
-              : "border border-white bg-transparent text-white hover:bg-white/10",
-          labelClassName,
-        )}
-      >
-        {label}
-      </Link>
+      {isPlaceholder ? (
+        <span
+          role="link"
+          aria-disabled="true"
+          className={ctaLabelClassName(variant, theme, labelClassName)}
+        >
+          {label}
+        </span>
+      ) : (
+        <Link
+          href={href}
+          className={ctaLabelClassName(variant, theme, labelClassName)}
+        >
+          {label}
+        </Link>
+      )}
       <Typography
         variant="muted-sm"
         as="p"

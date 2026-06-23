@@ -14,17 +14,15 @@ import {
   FOOTER_SOCIAL_LINKS,
   FOOTER_TAGLINE,
 } from "@/lib/config/footer";
+import { scrollToTop } from "@/lib/scroll-to-top";
 import { cn } from "@/lib/utils";
 
 const footerLinkClass =
   "text-[15px] font-normal leading-[131%] text-white transition-colors hover:text-secondary";
 
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
 export default function Footer() {
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const hasParentInsightSidebar = pathname.startsWith("/dashboard/parent-insight");
   const quickLinksFirstColumn = FOOTER_QUICK_LINKS.slice(0, 5);
   const quickLinksSecondColumn = FOOTER_QUICK_LINKS.slice(5);
@@ -55,7 +53,7 @@ export default function Footer() {
         <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-8 xl:gap-12">
           <div className="flex flex-col gap-5 sm:col-span-2 lg:col-span-1">
             <Logo
-              href="/home"
+              href="/"
               alt="Teen Next Step"
               imageClassName="h-9 w-auto sm:h-10"
             />
@@ -148,14 +146,16 @@ export default function Footer() {
               ))}
             </ul>
 
-            <button
-              type="button"
-              onClick={scrollToTop}
-              aria-label="Back to top"
-              className="ml-auto flex size-10 items-center justify-center rounded-[4px] border border-white bg-white text-primary transition-colors hover:bg-white/90"
-            >
-              <ArrowUp className="size-5" aria-hidden />
-            </button>
+            {!isHomePage && (
+              <button
+                type="button"
+                onClick={scrollToTop}
+                aria-label="Back to top"
+                className="ml-auto flex size-10 items-center justify-center rounded-[4px] border border-white bg-white text-primary transition-colors hover:bg-white/90"
+              >
+                <ArrowUp className="size-5" aria-hidden />
+              </button>
+            )}
           </div>
         </div>
 

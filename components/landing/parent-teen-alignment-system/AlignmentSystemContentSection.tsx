@@ -263,34 +263,38 @@ export default function AlignmentSystemContentSection() {
               <Typography variant="body-regular" as="p" className={bodyClass}>
                 {guidedSupport.closing}
               </Typography>
+
+              <div
+                id="no-perfect-parent"
+                aria-labelledby="no-perfect-parent-heading"
+                className="space-y-4 sm:space-y-5"
+              >
+                <SectionHeading
+                  id="no-perfect-parent-heading"
+                  className="text-[clamp(20px,2.6vw,32px)]"
+                >
+                  {noPerfectParent.heading}
+                </SectionHeading>
+
+                {noPerfectParent.paragraphs.map((paragraph) => (
+                  <Typography
+                    key={paragraph}
+                    variant="body-regular"
+                    as="p"
+                    className={bodyClass}
+                  >
+                    {paragraph}
+                  </Typography>
+                ))}
+              </div>
             </div>
 
             <ContentImage
               src={guidedSupport.image.src}
               alt={guidedSupport.image.alt}
+              className="min-h-[320px] sm:min-h-[380px] lg:min-h-[460px]"
             />
           </div>
-        </section>
-
-        <section
-          id="no-perfect-parent"
-          aria-labelledby="no-perfect-parent-heading"
-          className="space-y-4 sm:space-y-5"
-        >
-          <SectionHeading id="no-perfect-parent-heading">
-            {noPerfectParent.heading}
-          </SectionHeading>
-
-          {noPerfectParent.paragraphs.map((paragraph) => (
-            <Typography
-              key={paragraph}
-              variant="body-regular"
-              as="p"
-              className={bodyClass}
-            >
-              {paragraph}
-            </Typography>
-          ))}
         </section>
 
         <section
