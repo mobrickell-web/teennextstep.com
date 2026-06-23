@@ -215,7 +215,6 @@ export default function AlignmentSystemContentSection() {
                 <Typography variant="body-regular" as="p" className={bodyClass}>
                   {step.description}
                 </Typography>
-
               </li>
             ))}
           </ol>
