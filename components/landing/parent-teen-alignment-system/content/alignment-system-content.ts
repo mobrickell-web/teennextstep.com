@@ -48,7 +48,6 @@ export const ALIGNMENT_SYSTEM_CONTENT = {
       step: `Step ${index + 1}`,
       title: step.title.replace(/^\d+\.\s*/, "").trim(),
       description: step.description,
-      ...("bullets" in step && step.bullets ? { bullets: step.bullets } : {}),
     })),
   },
   guidedSupport: {

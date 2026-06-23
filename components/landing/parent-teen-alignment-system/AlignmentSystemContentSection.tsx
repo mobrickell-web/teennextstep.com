@@ -215,15 +215,7 @@ export default function AlignmentSystemContentSection() {
                 <Typography variant="body-regular" as="p" className={bodyClass}>
                   {step.description}
                 </Typography>
-                {"bullets" in step && step.bullets ? (
-                  <ul className="list-disc space-y-1 pl-5">
-                    {step.bullets.map((bullet) => (
-                      <li key={bullet} className={bodyClass}>
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
+
               </li>
             ))}
           </ol>
