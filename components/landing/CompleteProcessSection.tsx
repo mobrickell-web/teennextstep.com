@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-import { cn } from "@/lib/utils";
-
 import { LandingSectionNumber } from "@/components/landing/LandingSectionNumber";
 import { LANDING_SECTION_HEADING_PRIMARY } from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
@@ -42,10 +40,7 @@ export default function CompleteProcessSection() {
         </div>
 
         <div className="relative z-10 mt-8 grid gap-3 sm:grid-cols-2 lg:mt-10 lg:grid-cols-4">
-          {steps.map((step) => {
-            const hasTitleLine2 = "titleLine2" in step && step.titleLine2;
-
-            return (
+          {steps.map((step) => (
             <article
               key={step.title}
               className="flex h-full flex-col overflow-hidden rounded-[9px] border-[6px] border-secondary bg-secondary"
@@ -66,22 +61,9 @@ export default function CompleteProcessSection() {
                 <Typography
                   variant="h5"
                   as="h3"
-                  className={cn(
-                    "text-center text-[14px] font-[800] leading-[131%] text-primary sm:text-[18px]",
-                    !hasTitleLine2 &&
-                      "inline-block min-w-full whitespace-nowrap",
-                  )}
+                  className="inline-block min-w-full whitespace-nowrap text-center text-[14px] font-[800] leading-[131%] text-primary sm:text-[18px]"
                 >
-                  {hasTitleLine2 ? (
-                    <>
-                      <span className="block whitespace-nowrap">
-                        {step.title}
-                      </span>
-                      <span className="block">{step.titleLine2}</span>
-                    </>
-                  ) : (
-                    step.title
-                  )}
+                  {step.title}
                 </Typography>
               </div>
 
@@ -103,8 +85,7 @@ export default function CompleteProcessSection() {
                 </Typography>
               </div>
             </article>
-            );
-          })}
+          ))}
         </div>
 
         <ul className="relative z-10 mt-10 w-full list-disc space-y-2 pl-5 text-left text-sm text-foreground sm:mt-12 sm:text-base lg:mt-12">

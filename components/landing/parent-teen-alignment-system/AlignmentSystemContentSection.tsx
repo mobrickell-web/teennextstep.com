@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { Typography } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
+import { LANDING_PRIMARY_CTA_BG } from "@/components/landing/LandingCtaBlock";
 import { ALIGNMENT_SYSTEM_CONTENT } from "@/components/landing/parent-teen-alignment-system/content/alignment-system-content";
 
 const sectionHeadingClass =
@@ -364,7 +365,10 @@ export default function AlignmentSystemContentSection() {
             <div className="flex w-full flex-col items-start gap-2 sm:w-fit">
               <Link
                 href={ctas.primary.href}
-                className="inline-flex min-h-[50px] w-full items-center justify-center rounded-lg bg-secondary px-4 py-3 text-center text-sm font-[800] leading-snug text-white transition-colors hover:bg-secondary/90 sm:w-fit sm:min-w-[320px] sm:text-base"
+                className={cn(
+                  "inline-flex min-h-[50px] w-full items-center justify-center rounded-lg px-4 py-3 text-center text-sm font-[800] leading-snug transition-colors sm:w-fit sm:min-w-[320px] sm:text-base",
+                  LANDING_PRIMARY_CTA_BG,
+                )}
               >
                 {ctas.primary.label}
               </Link>

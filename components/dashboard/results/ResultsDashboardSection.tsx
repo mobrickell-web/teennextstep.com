@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 import { Typography } from "@/components/ui/typography";
 import { useResultsTabStore } from "@/lib/stores/use-results-tab-store";
@@ -28,6 +29,9 @@ function ParentInsightPanel() {
     important,
     fullPicture,
   } = parentInsight;
+  const [activeMetricLabel, setActiveMetricLabel] = useState<string | null>(
+    null,
+  );
 
   return (
     <div className="mt-8 sm:mt-10">
@@ -48,7 +52,11 @@ function ParentInsightPanel() {
 
       {/* Donut + score card */}
       <div className="mt-6 flex flex-col items-center gap-6 lg:ml-[20px] lg:flex-row lg:items-center lg:justify-start lg:gap-10">
-        <InsightDonut segments={[...metrics]} />
+        <InsightDonut
+          segments={[...metrics]}
+          activeLabel={activeMetricLabel}
+          onActiveLabelChange={setActiveMetricLabel}
+        />
 
         <div className={cn(CARD, "w-full max-w-[900px] px-6 py-8 text-center")}>
           <Typography
@@ -108,24 +116,56 @@ function ParentInsightPanel() {
             {metricsHeading[1]}
           </Typography>
           <hr className="mt-3 border-0 border-t border-[#D9D9D9]" />
-          <ul className="mt-3 space-y-2">
+          <ul className="mt-3 space-y-1">
             {metrics
               .filter((m) => m.label)
-              .map((m) => (
-                <li
-                  key={m.label}
-                  className="flex items-center justify-between gap-3"
-                >
-                  <span className="text-[clamp(13px,1.5vw,16px)] leading-[150%] text-black">
-                    {m.label}
-                  </span>
-                  <span
-                    aria-hidden
-                    className="size-3 shrink-0 rounded-[2px]"
-                    style={{ backgroundColor: m.color }}
-                  />
-                </li>
-              ))}
+              .map((m) => {
+                const isActive = activeMetricLabel === m.label;
+
+                return (
+                  <li
+                    key={m.label}
+                    onMouseEnter={() => setActiveMetricLabel(m.label)}
+                    onMouseLeave={() => setActiveMetricLabel(null)}
+                    onFocus={() => setActiveMetricLabel(m.label)}
+                    onBlur={() => setActiveMetricLabel(null)}
+                    tabIndex={0}
+                    className={cn(
+                      "flex cursor-default items-center justify-between gap-3 rounded-[6px] px-2 py-1.5 transition-colors duration-200",
+                      isActive
+                        ? "bg-[#194783]/8 ring-1 ring-[#194783]/20"
+                        : "hover:bg-[#EAEAEA]/80",
+                    )}
+                  >
+                    <span
+                      className={cn(
+                        "text-[clamp(13px,1.5vw,16px)] leading-[150%] transition-colors duration-200",
+                        isActive ? "font-semibold text-[#194783]" : "text-black",
+                      )}
+                    >
+                      {m.label}
+                    </span>
+                    <span className="flex shrink-0 items-center gap-2">
+                      <span
+                        className={cn(
+                          "text-[clamp(13px,1.5vw,16px)] font-semibold leading-[150%] transition-colors duration-200",
+                          isActive ? "text-[#194783]" : "text-[#194783]/80",
+                        )}
+                      >
+                        {m.value}%
+                      </span>
+                      <span
+                        aria-hidden
+                        className={cn(
+                          "size-3 shrink-0 rounded-[2px] transition-transform duration-200",
+                          isActive && "scale-125",
+                        )}
+                        style={{ backgroundColor: m.color }}
+                      />
+                    </span>
+                  </li>
+                );
+              })}
           </ul>
         </div>
 

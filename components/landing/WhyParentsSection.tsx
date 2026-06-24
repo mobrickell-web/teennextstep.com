@@ -1,7 +1,10 @@
 import Image from "next/image";
 
 import { LandingSectionNumber } from "@/components/landing/LandingSectionNumber";
-import { LANDING_SECTION_HEADING_PRIMARY } from "@/components/landing/landing-styles";
+import {
+  LANDING_SECTION_BODY_CLASS,
+  LANDING_SECTION_HEADING_PRIMARY,
+} from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
 
 import {
@@ -76,13 +79,13 @@ export default function WhyParentsSection() {
             <Typography
               variant="body-regular"
               as="p"
-              className="text-sm text-foreground sm:text-base"
+              className={LANDING_SECTION_BODY_CLASS}
             >
               <strong className="font-bold">{intro.emphasis}</strong>
               {intro.text.slice(intro.emphasis.length)}
             </Typography>
 
-            <ul className="list-disc space-y-1 pl-5 text-sm text-foreground sm:text-base">
+            <ul className={`list-disc space-y-1 pl-5 ${LANDING_SECTION_BODY_CLASS}`}>
               {misalignmentResults.map((item) => (
                 <li key={item}>{item}</li>
               ))}
@@ -91,7 +94,7 @@ export default function WhyParentsSection() {
             <Typography
               variant="body-semibold"
               as="p"
-              className="text-sm font-bold text-primary sm:text-base"
+              className={`font-bold text-primary ${LANDING_SECTION_BODY_CLASS}`}
             >
               {callout}
             </Typography>
@@ -99,12 +102,12 @@ export default function WhyParentsSection() {
             <Typography
               variant="body-regular"
               as="p"
-              className="text-sm text-foreground sm:text-base"
+              className={LANDING_SECTION_BODY_CLASS}
             >
               {processIntro}
             </Typography>
 
-            <ol className="list-decimal space-y-2 pl-5 text-sm text-foreground sm:text-base">
+            <ol className={`list-decimal space-y-2 pl-5 ${LANDING_SECTION_BODY_CLASS}`}>
               {steps.map((step, index) => (
                 <li key={index}>{renderStepText(step)}</li>
               ))}

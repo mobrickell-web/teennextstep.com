@@ -13,10 +13,10 @@ export const MAIN_NAV_ITEMS: MainNavItem[] = [
   { label: "Why Us", href: "/#why-us" },
   { label: "Why Parents Trust Us", href: "/#why-parents-trust-us" },
   { label: "Our 4 Steps", href: "/#four-step-process" },
-  { label: "What's Included", href: "/parent-teen-alignment-system" },
+  { label: "What's Included", href: "/#complete-process" },
   {
     label: "If Parent & Teen Paths Differ",
-    href: "/#if-parent-teen-paths-differ",
+    href: "/#different-paths",
   },
   {
     label: "More",
@@ -64,6 +64,13 @@ export const DASHBOARD_ROLE_ITEMS: DashboardRoleItem[] = [
 /** Outlined login trigger — white border on primary navbar */
 export const loginTriggerClassName =
   "group inline-flex h-12 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-sm border border-white bg-transparent px-5 text-base font-medium text-white transition-colors outline-none hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/30 data-[state=open]:bg-white/10";
+
+/** Shared frosted dropdown panel — Login, dashboard role, and main nav submenus */
+export const loginDropdownContentClassName =
+  "w-auto min-w-[198px] max-w-[calc(100vw-2rem)] gap-[10px] rounded-none border-0 bg-[#0000007A] p-0 px-[22px] py-[17px] text-white shadow-none backdrop-blur-[4px]";
+
+export const loginDropdownItemClassName =
+  "whitespace-nowrap rounded-md px-2 py-2 text-base font-normal text-white hover:bg-white/15 focus:bg-white/15 focus:text-white";
 
 export function isNavLinkActive(
   pathname: string,

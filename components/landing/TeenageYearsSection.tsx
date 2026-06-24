@@ -1,5 +1,9 @@
 import { LandingSectionNumber } from "@/components/landing/LandingSectionNumber";
-import { LANDING_SECTION_HEADING_PRIMARY } from "@/components/landing/landing-styles";
+import {
+  LANDING_SECTION_BODY_CLASS,
+  LANDING_SECTION_HEADING_PRIMARY,
+  LANDING_SECTION_TAGLINE_CLASS,
+} from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
 
 import { TEENAGE_YEARS_SECTION_CONTENT } from "@/components/landing/content/teenage-years-section";
@@ -26,7 +30,9 @@ export default function TeenageYearsSection() {
             {heading}
           </Typography>
 
-          <p className="scrollbar-hide flex max-w-full flex-nowrap items-center justify-center gap-x-2 overflow-x-auto text-[clamp(11px,3vw,22px)] font-bold whitespace-nowrap text-foreground sm:text-lg md:text-xl lg:text-[22px]">
+          <p
+            className={`scrollbar-hide flex max-w-full flex-nowrap items-center justify-center gap-x-2 overflow-x-auto whitespace-nowrap text-foreground ${LANDING_SECTION_TAGLINE_CLASS}`}
+          >
             {tags.map((tag, index) => (
               <span key={tag} className="inline-flex shrink-0 items-center gap-2">
                 {index > 0 ? (

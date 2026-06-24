@@ -94,7 +94,7 @@ export const ALIGNMENT_SYSTEM_CONTENT = {
   },
   investment: {
     heading: "Investment",
-    priceLine: "Complete 8-Part Parent–Teen Alignment System — $1487",
+    priceLine: "Complete 8-Part Parent–Teen Alignment System — $5800",
     description: {
       text: "Includes guided support from a Teen Next Step Ambassador throughout the process.",
       emphasis: "Teen Next Step Ambassador",
@@ -102,7 +102,7 @@ export const ALIGNMENT_SYSTEM_CONTENT = {
   },
   ctas: {
     primary: {
-      label: "Start Parent-Teen Alignment System — $1487",
+      label: "Start Parent-Teen Alignment System — $5800",
       href: "/secure-your-teens-next-step",
       caption: "Full system • Ambassador Support • Personalized roadmap",
     },

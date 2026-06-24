@@ -9,7 +9,7 @@ export { default as CompleteProcessSection } from "./CompleteProcessSection";
 export { default as DifferentPathsSection } from "./DifferentPathsSection";
 export { default as ParentsDiscoverSection } from "./ParentsDiscoverSection";
 export { default as FaqSection } from "./FaqSection";
-export { LandingCtaBlock } from "./LandingCtaBlock";
+export { LandingCtaBlock, LANDING_PRIMARY_CTA_BG } from "./LandingCtaBlock";
 export { LandingSectionNumber } from "./LandingSectionNumber";
 export {
   LANDING_SECTION_HEADING_CLASS,

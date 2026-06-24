@@ -1,9 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
+import { LandingCtaBlock } from "@/components/landing/LandingCtaBlock";
 import { Typography } from "@/components/ui/typography";
-import { cn } from "@/lib/utils";
 
 import {
   SUPER_SECTION_CONTENT,
@@ -25,48 +24,6 @@ function renderBulletText(bullet: BulletItem) {
       <strong className="font-semibold text-white">{bullet.emphasis}</strong>
       {after}
     </>
-  );
-}
-
-function CtaBlock({
-  href,
-  label,
-  caption,
-  variant,
-  className,
-}: {
-  href: string;
-  label: string;
-  caption: string;
-  variant: "primary" | "secondary";
-  className?: string;
-}) {
-  return (
-    <div
-      className={cn(
-        "flex w-fit max-w-full flex-col items-center gap-2",
-        className,
-      )}
-    >
-      <Link
-        href={href}
-        className={cn(
-          "inline-flex w-fit min-h-[50px] items-center justify-center rounded-lg px-4 py-3 text-center text-sm font-semibold leading-snug transition-colors sm:text-base",
-          variant === "primary"
-            ? "bg-secondary text-white hover:bg-secondary/90"
-            : "border border-white bg-transparent text-white hover:bg-white/10",
-        )}
-      >
-        {label}
-      </Link>
-      <Typography
-        variant="muted-sm"
-        as="p"
-        className="text-center text-xs leading-relaxed text-white/80"
-      >
-        {caption}
-      </Typography>
-    </div>
   );
 }
 
@@ -139,17 +96,21 @@ export default function SuperSection() {
         </div>
 
         <div className="mt-6 flex w-full flex-col items-start gap-6 sm:flex-row sm:gap-4 lg:mt-8 lg:gap-5">
-          <CtaBlock
+          <LandingCtaBlock
             href={primaryCta.href}
             label={primaryCta.label}
             caption={primaryCta.caption}
             variant="primary"
+            theme="dark"
+            className="items-start"
           />
-          <CtaBlock
+          <LandingCtaBlock
             href={secondaryCta.href}
             label={secondaryCta.label}
             caption={secondaryCta.caption}
             variant="secondary"
+            theme="dark"
+            className="items-start"
           />
         </div>
       </div>

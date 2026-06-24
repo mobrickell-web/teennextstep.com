@@ -76,7 +76,7 @@ export default function WhyDifferentSection() {
             <div className="space-y-4">
               <Typography
                 id="why-different-heading"
-                variant="h3"
+                variant="h2"
                 as="h2"
                 className={LANDING_SECTION_HEADING_PRIMARY}
               >
@@ -139,7 +139,7 @@ export default function WhyDifferentSection() {
 
             <div className="space-y-4">
               <Typography
-                variant="h3"
+                variant="h2"
                 as="h3"
                 className={LANDING_SECTION_HEADING_PRIMARY}
               >

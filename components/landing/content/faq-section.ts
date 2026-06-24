@@ -12,52 +12,52 @@ export const FAQ_SECTION_CONTENT = {
     // Placeholder answers — edit these with the real content.
     items: [
       {
-        question: "What will we receive?",
+        question: "What Will We Receive?",
         answer:
           "You'll receive a clear insight report on how you currently view your role in guiding your teen, plus a recommended next step.",
       },
       {
-        question: "What if my teen isn't interested?",
+        question: "What If My Teen Isn't Interested?",
         answer:
           "The process begins with the parent. The teen profile comes later and is designed to lower pressure and open conversation.",
       },
       {
-        question: "Is this a career test?",
+        question: "Is This A Career Test?",
         answer:
           "No. It's an alignment system that measures direction, readiness, and decision awareness — not a single career label.",
       },
       {
-        question: "Do we need to agree?",
+        question: "Do We Need To Agree?",
         answer:
           "No. The goal is to reveal where you align and where gaps exist, so you can move forward with better understanding.",
       },
       {
-        question: "Who completes the profile?",
+        question: "Who Completes The Profile?",
         answer:
           "The parent completes their profile first, then the teen completes their own as part of the full alignment system.",
       },
       {
-        question: "What happens after results?",
+        question: "What Happens After Results?",
         answer:
           "You'll see your alignment strengths and gaps, along with a clear next-step roadmap and access to Ambassador Support.",
       },
       {
-        question: "How long does it take?",
+        question: "How Long Does It Take?",
         answer:
           "The free Parent Insight Assessment takes about 3–5 minutes, with instant results.",
       },
       {
-        question: "What ages is this for?",
+        question: "What Ages Is This For?",
         answer:
           "Teen Next Step is designed for families with teens navigating education, career, and next-step decisions.",
       },
       {
-        question: "What if my teen has a plan?",
+        question: "What If My Teen Has A Plan?",
         answer:
           "Great — this helps confirm alignment and surfaces anything worth discussing before major commitments are made.",
       },
       {
-        question: "Is the $1487 refundable?",
+        question: "Is The $5800 Refundable?",
         answer:
           "Please review the current refund terms at checkout. Reach out to our team if you have questions before purchasing.",
       },

@@ -32,6 +32,8 @@ import {
   MAIN_NAV_ITEMS,
   isNavItemActive,
   isNavLinkActive,
+  loginDropdownContentClassName,
+  loginDropdownItemClassName,
   loginTriggerClassName,
   type MainNavItem,
 } from "@/lib/config/main-nav";
@@ -87,18 +89,23 @@ function DesktopNavDropdown({
         {item.label}
         <ChevronDown className="size-4 shrink-0 opacity-80 transition-transform group-data-[state=open]:rotate-180" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="center" className="min-w-44">
+      <DropdownMenuContent
+        align="center"
+        sideOffset={10}
+        collisionPadding={16}
+        className={loginDropdownContentClassName}
+      >
         {item.children?.map((child) => (
-          <DropdownMenuItem key={child.href} asChild>
-            <Link
-              href={child.href}
-              className={cn(
-                isNavLinkActive(pathname, hash, child.href) &&
-                  "bg-accent font-medium",
-              )}
-            >
-              {child.label}
-            </Link>
+          <DropdownMenuItem
+            key={child.href}
+            asChild
+            className={cn(
+              loginDropdownItemClassName,
+              isNavLinkActive(pathname, hash, child.href) &&
+                "bg-white/15 font-medium",
+            )}
+          >
+            <Link href={child.href}>{child.label}</Link>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
@@ -154,22 +161,27 @@ function MobileNavItem({
   if (item.children?.length) {
     return (
       <Collapsible>
-        <CollapsibleTrigger className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-lg font-medium text-foreground transition-colors hover:bg-muted [&[data-state=open]>svg]:rotate-180">
+        <CollapsibleTrigger className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-lg font-medium text-black transition-colors hover:bg-muted [&[data-state=open]>svg]:rotate-180">
           {item.label}
           <ChevronDown className="size-4 shrink-0 transition-transform duration-200" />
         </CollapsibleTrigger>
-        <CollapsibleContent className="pb-1 pl-2">
-          <ul className="flex flex-col gap-0.5 border-l border-border pl-3">
+        <CollapsibleContent className="mt-2 px-1 pb-1">
+          <ul
+            className={cn(
+              "flex flex-col gap-[10px]",
+              loginDropdownContentClassName,
+            )}
+          >
             {item.children.map((child) => (
               <li key={child.href}>
                 <SheetClose asChild>
                   <Link
                     href={child.href}
                     className={cn(
-                      "flex items-center rounded-lg px-3 py-2.5 text-base font-medium transition-colors",
-                      isNavLinkActive(pathname, hash, child.href)
-                        ? "bg-primary/10 text-primary"
-                        : "text-foreground hover:bg-muted",
+                      loginDropdownItemClassName,
+                      "flex w-full items-center",
+                      isNavLinkActive(pathname, hash, child.href) &&
+                        "bg-white/15 font-medium",
                     )}
                   >
                     {child.label}
@@ -193,8 +205,8 @@ function MobileNavItem({
         className={cn(
           "flex items-center rounded-xl px-4 py-3 text-lg font-medium transition-colors",
           isNavItemActive(pathname, hash, item)
-            ? "bg-primary/10 text-primary"
-            : "text-foreground hover:bg-muted",
+            ? "bg-muted font-semibold text-black"
+            : "text-black hover:bg-muted",
         )}
       >
         {item.label}
@@ -212,12 +224,16 @@ function LoginMenu({ className }: { className?: string }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="end"
-        sideOffset={8}
+        sideOffset={10}
         collisionPadding={16}
-        className="w-auto min-w-40 max-w-[calc(100vw-2rem)]"
+        className={loginDropdownContentClassName}
       >
         {LOGIN_MENU_ITEMS.map((item) => (
-          <DropdownMenuItem key={item.href} asChild>
+          <DropdownMenuItem
+            key={item.href}
+            asChild
+            className={loginDropdownItemClassName}
+          >
             <Link href={item.href}>{item.label}</Link>
           </DropdownMenuItem>
         ))}
@@ -240,15 +256,16 @@ function DashboardRoleMenu({ className }: { className?: string }) {
         align="end"
         sideOffset={10}
         collisionPadding={16}
-        className="w-auto min-w-[198px] max-w-[calc(100vw-2rem)] gap-[10px] rounded-none border-0 bg-[#0000007A] p-0 px-[22px] py-[17px] text-white shadow-none backdrop-blur-[4px]"
+        className={loginDropdownContentClassName}
       >
         {DASHBOARD_ROLE_ITEMS.map((item) => {
-          const itemClassName =
-            "whitespace-nowrap rounded-md px-2 py-2 text-base font-normal text-white focus:bg-white/15 focus:text-white";
-
           if (item.href) {
             return (
-              <DropdownMenuItem key={item.label} asChild className={itemClassName}>
+              <DropdownMenuItem
+                key={item.label}
+                asChild
+                className={loginDropdownItemClassName}
+              >
                 <Link href={item.href}>{item.label}</Link>
               </DropdownMenuItem>
             );
@@ -264,7 +281,7 @@ function DashboardRoleMenu({ className }: { className?: string }) {
                   logout();
                 }
               }}
-              className={itemClassName}
+              className={loginDropdownItemClassName}
             >
               {item.label}
             </DropdownMenuItem>
@@ -299,15 +316,20 @@ function MobileNav({
         </Button>
       </SheetTrigger>
 
-      <SheetContent side="right" className="w-full max-w-sm gap-0 p-0">
-        <SheetHeader className="border-b border-border px-5 py-4">
+      <SheetContent
+        side="right"
+        className="w-full max-w-sm gap-0 bg-white p-0 text-black [&>button[data-slot=sheet-close]]:text-white [&>button[data-slot=sheet-close]:hover]:bg-white/10"
+      >
+        <SheetHeader className="border-b border-white/10 bg-primary px-5 py-4">
           <SheetTitle className="sr-only">Main navigation</SheetTitle>
-          <Logo href="/" />
+          <SheetClose asChild>
+            <Logo href="/" variant="white" />
+          </SheetClose>
         </SheetHeader>
 
         <nav
           aria-label="Mobile navigation"
-          className="flex-1 overflow-y-auto px-3 py-4"
+          className="flex-1 overflow-y-auto bg-white px-3 py-4 text-black"
         >
           <ul className="flex flex-col gap-1">
             {MAIN_NAV_ITEMS.map((item) => (
@@ -322,12 +344,12 @@ function MobileNav({
           </ul>
         </nav>
 
-        <div className="mt-auto border-t border-border p-4">
+        <div className="mt-auto border-t border-border bg-white p-4 text-black">
           <Collapsible>
             <CollapsibleTrigger
               className={cn(
                 loginTriggerClassName,
-                "w-full border-primary text-primary hover:bg-primary/5 [&[data-state=open]>svg]:rotate-180",
+                "w-full border-black text-black hover:bg-black/5 [&[data-state=open]>svg]:rotate-180",
               )}
             >
               Login
@@ -338,7 +360,7 @@ function MobileNav({
                 <SheetClose key={item.href} asChild>
                   <Link
                     href={item.href}
-                    className="flex w-full items-center rounded-lg px-4 py-2.5 text-base font-medium text-foreground transition-colors hover:bg-muted"
+                    className="flex w-full items-center rounded-lg px-4 py-2.5 text-base font-medium text-black transition-colors hover:bg-muted"
                   >
                     {item.label}
                   </Link>

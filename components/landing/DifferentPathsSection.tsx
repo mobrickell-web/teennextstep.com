@@ -1,9 +1,11 @@
 import Image from "next/image";
 
 import { LandingSectionNumber } from "@/components/landing/LandingSectionNumber";
-import { LANDING_SECTION_HEADING_SIZE_SM } from "@/components/landing/landing-styles";
+import {
+  LANDING_SECTION_HEADING_PRIMARY,
+  LANDING_SECTION_TAGLINE_CLASS,
+} from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
-import { cn } from "@/lib/utils";
 
 import {
   DIFFERENT_PATHS_SECTION_CONTENT,
@@ -61,11 +63,7 @@ export default function DifferentPathsSection() {
                 id="different-paths-heading"
                 variant="h2"
                 as="h2"
-                className={cn(
-                  "text-[13px] font-[800] leading-[131%] text-primary",
-                  LANDING_SECTION_HEADING_SIZE_SM,
-                  "sm:font-[800] sm:leading-tight",
-                )}
+                className={LANDING_SECTION_HEADING_PRIMARY}
               >
                 <span className="inline md:block">{heading.line1} </span>
                 <span className="inline md:block">{heading.line2}</span>
@@ -74,7 +72,7 @@ export default function DifferentPathsSection() {
               <Typography
                 variant="h5"
                 as="p"
-                className="text-[11px] font-[800] leading-[131%] text-[#1B2A49] sm:text-[clamp(16px,1.7vw,22px)]"
+                className={`font-[800] leading-[131%] text-[#1B2A49] ${LANDING_SECTION_TAGLINE_CLASS}`}
               >
                 {subheading}
               </Typography>
@@ -84,7 +82,7 @@ export default function DifferentPathsSection() {
                   key={index}
                   variant="body-regular"
                   as="p"
-                  className="text-[11px] font-normal leading-[131%] text-[#1B2A49] sm:text-[clamp(15px,1.7vw,22px)]"
+                  className="text-[18px] font-normal leading-[131%] text-[#1B2A49]"
                 >
                   {renderSegments(segments)}
                 </Typography>
@@ -98,7 +96,7 @@ export default function DifferentPathsSection() {
                 key={index}
                 variant="body-regular"
                 as="p"
-                className="text-[11px] font-normal leading-[131%] text-[#1B2A49] sm:text-[clamp(15px,1.7vw,22px)]"
+                className="text-[18px] font-normal leading-[131%] text-[#1B2A49]"
               >
                 {renderSegments(segments)}
               </Typography>
