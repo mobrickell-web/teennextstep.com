@@ -4,7 +4,7 @@ export type RichSegment = {
 };
 
 export const DIFFERENT_PATHS_SECTION_CONTENT = {
-  sectionNumber: "07",
+  sectionNumber: "06",
   image: {
     src: "/images/landing-page/Rectangle 40.png",
     alt: "A parent and teen sitting together having a serious conversation",

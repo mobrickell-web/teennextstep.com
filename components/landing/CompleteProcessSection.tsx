@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { cn } from "@/lib/utils";
+
 import { LandingSectionNumber } from "@/components/landing/LandingSectionNumber";
 import { LANDING_SECTION_HEADING_PRIMARY } from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
@@ -39,11 +41,14 @@ export default function CompleteProcessSection() {
           </Typography>
         </div>
 
-        <div className="relative z-10 mt-8 grid gap-6 sm:grid-cols-2 lg:mt-10 lg:grid-cols-4 lg:gap-6">
-          {steps.map((step) => (
+        <div className="relative z-10 mt-8 grid gap-3 sm:grid-cols-2 lg:mt-10 lg:grid-cols-4">
+          {steps.map((step) => {
+            const hasTitleLine2 = "titleLine2" in step && step.titleLine2;
+
+            return (
             <article
               key={step.title}
-              className="flex h-full flex-col overflow-hidden rounded-[9px] border-[13px] border-secondary bg-secondary"
+              className="flex h-full flex-col overflow-hidden rounded-[9px] border-[6px] border-secondary bg-secondary"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-white/10">
                 <Image
@@ -55,13 +60,30 @@ export default function CompleteProcessSection() {
                 />
               </div>
 
-              <Typography
-                variant="h5"
-                as="h3"
-                className="px-2 py-3 text-center text-[14px] font-[800] leading-[131%] text-balance text-primary sm:px-3 sm:text-[18px]"
+              <div
+                className="overflow-x-auto py-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
               >
-                {step.title}
-              </Typography>
+                <Typography
+                  variant="h5"
+                  as="h3"
+                  className={cn(
+                    "text-center text-[14px] font-[800] leading-[131%] text-primary sm:text-[18px]",
+                    !hasTitleLine2 &&
+                      "inline-block min-w-full whitespace-nowrap",
+                  )}
+                >
+                  {hasTitleLine2 ? (
+                    <>
+                      <span className="block whitespace-nowrap">
+                        {step.title}
+                      </span>
+                      <span className="block">{step.titleLine2}</span>
+                    </>
+                  ) : (
+                    step.title
+                  )}
+                </Typography>
+              </div>
 
               <div className="flex flex-1 flex-col rounded-b-[8.8px] bg-white px-3 py-3">
                 <Typography
@@ -81,7 +103,8 @@ export default function CompleteProcessSection() {
                 </Typography>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
 
         <ul className="relative z-10 mt-10 w-full list-disc space-y-2 pl-5 text-left text-sm text-foreground sm:mt-12 sm:text-base lg:mt-12">

@@ -50,7 +50,8 @@ export const COMPLETE_PROCESS_SECTION_CONTENT = {
     {
       image: "/images/landing-page/teen-conversation-framewor.png",
       imageAlt: "Parent and teen discussing communication gaps",
-      title: "6. Guided Parent–Teen Conversation Framework",
+      title: "6. Guided Parent–Teen Conversation",
+      titleLine2: "Framework",
       summary: "Move Forward Together",
       description:
         "A simple structure to help you and your teen discuss results and move forward with clarity and confidence—where you align, where you differ, and agreeing on next steps together.",

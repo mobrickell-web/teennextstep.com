@@ -1,13 +1,13 @@
 import { SMALL_INVESTMENT_SECTION_CONTENT } from "./small-investment-section";
 
 export const FAQ_SECTION_CONTENT = {
-  sectionNumber: "09",
+  sectionNumber: "08",
   heading: "Clear Insight for Parents Navigating Their Teen's Future",
   subheading:
     "Understand what's really going on — and how to move forward with clarity and confidence",
   ctaLabel: "View More",
   faq: {
-    sectionNumber: "10",
+    sectionNumber: "09",
     heading: "Frequently Asked Questions",
     // Placeholder answers — edit these with the real content.
     items: [
@@ -73,7 +73,8 @@ export const FAQ_SECTION_CONTENT = {
       title: "The Motivation Crisis: Why Teens Feel Stuck—and What Helps",
       description:
         "Many teens aren't unmotivated—they're misaligned. See what's really causing the motivation gap and how the right structure can help your teen move forward.",
-      href: "/insights/motivation-crisis",
+      /** Placeholder until insight article URLs are finalized */
+      href: "#",
     },
     {
       image: "/images/landing-page/Rectangle 182.png",
@@ -81,7 +82,8 @@ export const FAQ_SECTION_CONTENT = {
       title: "Parent Aha's: What Changes When Parents See the Full Picture",
       description:
         "The biggest shift occurs when parents finally see what's really going on. Discover what changes everything—and why most don't see it early enough.",
-      href: "/insights/parent-ahas",
+      /** Placeholder until insight article URLs are finalized */
+      href: "#",
     },
     {
       image: "/images/landing-page/Rectangle 179.png",
@@ -89,7 +91,8 @@ export const FAQ_SECTION_CONTENT = {
       title: "Teen Aha's: When Teens Realize What Actually Fits Them",
       description:
         "Teens don't need more pressure—they need something to click. Learn what creates that shift and how teens begin to take real ownership of their future.",
-      href: "/insights/teen-ahas",
+      /** Placeholder until insight article URLs are finalized */
+      href: "#",
     },
     {
       image: "/images/landing-page/Rectangle 176.png",
@@ -97,7 +100,8 @@ export const FAQ_SECTION_CONTENT = {
       title: "Traditional Paths vs. Teen Next Step: Alignment Before Decisions",
       description:
         "Most teens are pushed into decisions before clarity exists. See a smarter, more structured way to help your teen choose a path that actually fits.",
-      href: "/insights/traditional-paths",
+      /** Placeholder until insight article URLs are finalized */
+      href: "#",
     },
     {
       image: "/images/landing-page/Rectangle 72.png",
@@ -105,7 +109,8 @@ export const FAQ_SECTION_CONTENT = {
       title: "AI Can Measure, But Only Humans Can Create Alignment",
       description:
         "AI can process information—but it cannot replace real human understanding. Discover why true parent-teen alignment still requires empathy, communication, and guided human connection.",
-      href: "/insights/ai-and-alignment",
+      /** Placeholder until insight article URLs are finalized */
+      href: "#",
     },
   ],
 } as const;

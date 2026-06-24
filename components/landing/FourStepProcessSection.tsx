@@ -33,7 +33,7 @@ export default function FourStepProcessSection() {
           {steps.map((step) => (
             <article
               key={step.title}
-              className="flex h-full flex-col overflow-hidden rounded-[9px] border-[13px] border-primary bg-primary"
+              className="flex h-full flex-col overflow-hidden rounded-[9px] border-[6px] border-primary bg-primary"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-white/10">
                 <Image

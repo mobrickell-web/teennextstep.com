@@ -309,6 +309,18 @@
   text-shadow: 0 4px 19.1px rgb(0 0 0 / 28%);
 }
 
+@media (min-width: 1024px) {
+  .landing-section-number {
+    color: rgb(24 46 91 / 28%);
+    text-shadow: 0 4px 19.1px rgb(0 0 0 / 10%);
+  }
+
+  .landing-section-number--on-dark {
+    color: rgb(255 255 255 / 38%);
+    text-shadow: 0 4px 19.1px rgb(0 0 0 / 16%);
+  }
+}
+
 /* Site header — fixed navbar height (spacer + dashboard sidebar offset) */
 html {
   overflow-y: scroll;

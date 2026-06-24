@@ -86,13 +86,24 @@ export default function FaqSection() {
                 </Typography>
               </div>
 
-              <Link
-                href={card.href}
-                className="mt-3 flex items-center justify-center gap-1.5 rounded-b-[8.41px] bg-white px-3 py-3 text-[13px] font-semibold text-primary transition-colors hover:bg-primary/5"
-              >
-                {ctaLabel}
-                <ChevronRight className="size-4 shrink-0" aria-hidden />
-              </Link>
+              {card.href === "#" ? (
+                <span
+                  role="link"
+                  aria-disabled="true"
+                  className="mt-3 flex items-center justify-center gap-1.5 rounded-b-[8.41px] bg-white px-3 py-3 text-[13px] font-semibold text-primary"
+                >
+                  {ctaLabel}
+                  <ChevronRight className="size-4 shrink-0" aria-hidden />
+                </span>
+              ) : (
+                <Link
+                  href={card.href}
+                  className="mt-3 flex items-center justify-center gap-1.5 rounded-b-[8.41px] bg-white px-3 py-3 text-[13px] font-semibold text-primary transition-colors hover:bg-primary/5"
+                >
+                  {ctaLabel}
+                  <ChevronRight className="size-4 shrink-0" aria-hidden />
+                </Link>
+              )}
             </article>
           ))}
         </div>

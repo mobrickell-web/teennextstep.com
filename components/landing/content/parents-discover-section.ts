@@ -1,7 +1,7 @@
 import { SUPER_SECTION_CONTENT } from "./super-section";
 
 export const PARENTS_DISCOVER_SECTION_CONTENT = {
-  sectionNumber: "08",
+  sectionNumber: "07",
   heading: "What Parents Often Discover",
   image: {
     src: "/images/landing-page/parents-discover-image.png",
