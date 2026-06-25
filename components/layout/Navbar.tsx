@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ChevronDown, Menu } from "lucide-react";
 
 import { Logo } from "@/components/brand/Logo";
@@ -36,6 +36,7 @@ import {
   loginDropdownItemClassName,
   loginDropdownItemDisabledClassName,
   loginTriggerClassName,
+  type DashboardRoleItem,
   type MainNavItem,
 } from "@/lib/config/main-nav";
 import { useAuthStore } from "@/lib/stores/use-auth-store";
@@ -44,6 +45,126 @@ import { cn } from "@/lib/utils";
 
 const navLinkClass =
   "inline-flex items-center gap-1 whitespace-nowrap text-sm font-medium text-white transition-colors xl:text-base";
+
+function useLoginMenuHandlers({
+  navigateOnTab = false,
+  navigateOnLogout = false,
+}: {
+  navigateOnTab?: boolean;
+  navigateOnLogout?: boolean;
+} = {}) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const setActiveTab = useResultsTabStore((state) => state.setActiveTab);
+  const logout = useAuthStore((state) => state.logout);
+
+  const handleSelect = (item: DashboardRoleItem) => {
+    if ("tab" in item && item.tab) {
+      setActiveTab(item.tab);
+      if (navigateOnTab && !pathname.startsWith("/dashboard/results")) {
+        router.push("/dashboard/results");
+      }
+    } else if ("action" in item && item.action === "logout") {
+      logout();
+      if (navigateOnLogout) {
+        router.push("/");
+      }
+    }
+  };
+
+  return { handleSelect };
+}
+
+function LoginDropdownItems({
+  items,
+  navigateOnTab = false,
+  navigateOnLogout = false,
+}: {
+  items: DashboardRoleItem[];
+  navigateOnTab?: boolean;
+  navigateOnLogout?: boolean;
+}) {
+  const { handleSelect } = useLoginMenuHandlers({
+    navigateOnTab,
+    navigateOnLogout,
+  });
+
+  return items.map((item) => {
+    if ("href" in item && item.href) {
+      return (
+        <DropdownMenuItem
+          key={item.label}
+          asChild
+          className={loginDropdownItemClassName}
+        >
+          <Link href={item.href}>{item.label}</Link>
+        </DropdownMenuItem>
+      );
+    }
+
+    return (
+      <DropdownMenuItem
+        key={item.label}
+        onSelect={() => handleSelect(item)}
+        className={loginDropdownItemClassName}
+      >
+        {item.label}
+      </DropdownMenuItem>
+    );
+  });
+}
+
+function MobileLoginMenuItems({
+  items,
+  navigateOnTab = false,
+  navigateOnLogout = false,
+}: {
+  items: DashboardRoleItem[];
+  navigateOnTab?: boolean;
+  navigateOnLogout?: boolean;
+}) {
+  const { handleSelect } = useLoginMenuHandlers({
+    navigateOnTab,
+    navigateOnLogout,
+  });
+
+  return items.map((item) => {
+    if ("href" in item && item.href) {
+      return (
+        <li key={item.label}>
+          <SheetClose asChild>
+            <Link
+              href={item.href}
+              className={cn(
+                loginDropdownItemClassName,
+                "flex w-full items-center",
+              )}
+            >
+              {item.label}
+            </Link>
+          </SheetClose>
+        </li>
+      );
+    }
+
+    return (
+      <li key={item.label}>
+        <SheetClose asChild>
+          <button
+            type="button"
+            onClick={() => handleSelect(item)}
+            className={cn(
+              loginDropdownItemClassName,
+              "flex w-full items-center text-left",
+            )}
+          >
+            {item.label}
+          </button>
+        </SheetClose>
+      </li>
+    );
+  });
+}
 
 function NavLink({
   href,
@@ -255,24 +376,17 @@ function LoginMenu({ className }: { className?: string }) {
         collisionPadding={16}
         className={loginDropdownContentClassName}
       >
-        {LOGIN_MENU_ITEMS.map((item) => (
-          <DropdownMenuItem
-            key={item.href}
-            asChild
-            className={loginDropdownItemClassName}
-          >
-            <Link href={item.href}>{item.label}</Link>
-          </DropdownMenuItem>
-        ))}
+        <LoginDropdownItems
+          items={LOGIN_MENU_ITEMS}
+          navigateOnTab
+          navigateOnLogout
+        />
       </DropdownMenuContent>
     </DropdownMenu>
   );
 }
 
 function DashboardRoleMenu({ className }: { className?: string }) {
-  const setActiveTab = useResultsTabStore((state) => state.setActiveTab);
-  const logout = useAuthStore((state) => state.logout);
-
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger className={cn(loginTriggerClassName, className)}>
@@ -285,35 +399,7 @@ function DashboardRoleMenu({ className }: { className?: string }) {
         collisionPadding={16}
         className={loginDropdownContentClassName}
       >
-        {DASHBOARD_ROLE_ITEMS.map((item) => {
-          if (item.href) {
-            return (
-              <DropdownMenuItem
-                key={item.label}
-                asChild
-                className={loginDropdownItemClassName}
-              >
-                <Link href={item.href}>{item.label}</Link>
-              </DropdownMenuItem>
-            );
-          }
-
-          return (
-            <DropdownMenuItem
-              key={item.label}
-              onSelect={() => {
-                if (item.tab) {
-                  setActiveTab(item.tab);
-                } else {
-                  logout();
-                }
-              }}
-              className={loginDropdownItemClassName}
-            >
-              {item.label}
-            </DropdownMenuItem>
-          );
-        })}
+        <LoginDropdownItems items={DASHBOARD_ROLE_ITEMS} />
       </DropdownMenuContent>
     </DropdownMenu>
   );
@@ -389,21 +475,11 @@ function MobileNav({
                   loginDropdownContentClassName,
                 )}
               >
-                {LOGIN_MENU_ITEMS.map((item) => (
-                  <li key={item.href}>
-                    <SheetClose asChild>
-                      <Link
-                        href={item.href}
-                        className={cn(
-                          loginDropdownItemClassName,
-                          "flex w-full items-center",
-                        )}
-                      >
-                        {item.label}
-                      </Link>
-                    </SheetClose>
-                  </li>
-                ))}
+                <MobileLoginMenuItems
+                  items={LOGIN_MENU_ITEMS}
+                  navigateOnTab
+                  navigateOnLogout
+                />
               </ul>
             </CollapsibleContent>
           </Collapsible>

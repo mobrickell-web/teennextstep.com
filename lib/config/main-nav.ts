@@ -32,7 +32,7 @@ export const MAIN_NAV_ITEMS: MainNavItem[] = [
     children: [
       { label: "What Parent Often Discover", href: "/#parents-discover" },
       { label: "Blog" },
-      { label: "FAQ's", href: "/#faq" },
+      { label: "FAQ's" , href: "/#faq" },
       { label: "TEEN NEXT STEP Overview" },
       { label: "Our Team" },
       { label: "Client Referral Program" },
@@ -47,13 +47,8 @@ export const MAIN_NAV_ITEMS: MainNavItem[] = [
 
 export const LOGIN_ROUTE = "/login";
 
-export const LOGIN_MENU_ITEMS: MainNavLink[] = [
-  { label: "Login", href: "/login" },
-  { label: "Sign Up", href: "/signup" },
-];
-
 /**
- * Role menu shown in place of the login dropdown on dashboard pages.
+ * Role / dashboard entries shown in the login dropdown.
  * Items with `tab` switch the active results tab; `action: "logout"` signs out.
  */
 export type DashboardRoleItem = {
@@ -65,13 +60,19 @@ export type DashboardRoleItem = {
 );
 
 export const DASHBOARD_ROLE_ITEMS: DashboardRoleItem[] = [
-  { label: "Parent Insight", href: "/dashboard/parent-insight" },
-  { label: "Parent - Teen", tab: "parent-teen-alignment" },
-  { label: "Teen", tab: "teen-alignment" },
-  { label: "Ambassador", tab: "ambassador" },
-  { label: "Alignment Architect", tab: "alignment-architect" },
-  { label: "Admin", tab: "admin" },
-  { label: "Logout", action: "logout" },
+  { label: "Parent Insight", href: "#" },
+  { label: "Parent - Teen", href: "#" },
+  { label: "Teen", href: "#" },
+  { label: "Ambassador", href: "#" },
+  { label: "Alignment Architect", href: "#" },
+  { label: "Admin", href: "#" },
+  { label: "Logout", href: "#" },
+];
+
+export const LOGIN_MENU_ITEMS: DashboardRoleItem[] = [
+  // { label: "Login", href: "#" },
+  // { label: "Sign Up", href: "/signup" },
+  ...DASHBOARD_ROLE_ITEMS,
 ];
 
 /** Outlined login trigger — white border on primary navbar */
