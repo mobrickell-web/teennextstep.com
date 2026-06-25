@@ -60,8 +60,7 @@ export type DashboardRoleItem = {
 );
 
 export const DASHBOARD_ROLE_ITEMS: DashboardRoleItem[] = [
-  { label: "Parent Insight", href: "#" },
-  { label: "Parent - Teen", href: "#" },
+  { label: "Parent", href: "#" },
   { label: "Teen", href: "#" },
   { label: "Ambassador", href: "#" },
   { label: "Alignment Architect", href: "#" },
