@@ -34,6 +34,7 @@ import {
   isNavLinkActive,
   loginDropdownContentClassName,
   loginDropdownItemClassName,
+  loginDropdownItemDisabledClassName,
   loginTriggerClassName,
   type MainNavItem,
 } from "@/lib/config/main-nav";
@@ -95,19 +96,32 @@ function DesktopNavDropdown({
         collisionPadding={16}
         className={loginDropdownContentClassName}
       >
-        {item.children?.map((child) => (
-          <DropdownMenuItem
-            key={child.href}
-            asChild
-            className={cn(
-              loginDropdownItemClassName,
-              isNavLinkActive(pathname, hash, child.href) &&
-                "bg-white/15 font-medium",
-            )}
-          >
-            <Link href={child.href}>{child.label}</Link>
-          </DropdownMenuItem>
-        ))}
+        {item.children?.map((child) =>
+          child.href ? (
+            <DropdownMenuItem
+              key={child.label}
+              asChild
+              className={cn(
+                loginDropdownItemClassName,
+                isNavLinkActive(pathname, hash, child.href) &&
+                  "bg-white/15 font-medium",
+              )}
+            >
+              <Link href={child.href}>{child.label}</Link>
+            </DropdownMenuItem>
+          ) : (
+            <DropdownMenuItem
+              key={child.label}
+              disabled
+              className={cn(
+                loginDropdownItemClassName,
+                loginDropdownItemDisabledClassName,
+              )}
+            >
+              {child.label}
+            </DropdownMenuItem>
+          ),
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );
@@ -173,20 +187,33 @@ function MobileNavItem({
             )}
           >
             {item.children.map((child) => (
-              <li key={child.href}>
-                <SheetClose asChild>
-                  <Link
-                    href={child.href}
+              <li key={child.label}>
+                {child.href ? (
+                  <SheetClose asChild>
+                    <Link
+                      href={child.href}
+                      className={cn(
+                        loginDropdownItemClassName,
+                        "flex w-full items-center",
+                        isNavLinkActive(pathname, hash, child.href) &&
+                          "bg-white/15 font-medium",
+                      )}
+                    >
+                      {child.label}
+                    </Link>
+                  </SheetClose>
+                ) : (
+                  <span
+                    aria-disabled="true"
                     className={cn(
                       loginDropdownItemClassName,
+                      loginDropdownItemDisabledClassName,
                       "flex w-full items-center",
-                      isNavLinkActive(pathname, hash, child.href) &&
-                        "bg-white/15 font-medium",
                     )}
                   >
                     {child.label}
-                  </Link>
-                </SheetClose>
+                  </span>
+                )}
               </li>
             ))}
           </ul>
@@ -355,17 +382,29 @@ function MobileNav({
               Login
               <ChevronDown className="size-4 shrink-0 transition-transform duration-200" />
             </CollapsibleTrigger>
-            <CollapsibleContent className="mt-2 space-y-1">
-              {LOGIN_MENU_ITEMS.map((item) => (
-                <SheetClose key={item.href} asChild>
-                  <Link
-                    href={item.href}
-                    className="flex w-full items-center rounded-lg px-4 py-2.5 text-base font-medium text-black transition-colors hover:bg-muted"
-                  >
-                    {item.label}
-                  </Link>
-                </SheetClose>
-              ))}
+            <CollapsibleContent className="mt-2 px-1 pb-1">
+              <ul
+                className={cn(
+                  "flex flex-col gap-[10px]",
+                  loginDropdownContentClassName,
+                )}
+              >
+                {LOGIN_MENU_ITEMS.map((item) => (
+                  <li key={item.href}>
+                    <SheetClose asChild>
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          loginDropdownItemClassName,
+                          "flex w-full items-center",
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    </SheetClose>
+                  </li>
+                ))}
+              </ul>
             </CollapsibleContent>
           </Collapsible>
         </div>

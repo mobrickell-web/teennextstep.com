@@ -1,6 +1,7 @@
 export type MainNavLink = {
   label: string;
-  href: string;
+  /** Omit when the destination page is not ready — item renders disabled in menus. */
+  href?: string;
 };
 
 export type MainNavItem = MainNavLink & {
@@ -22,10 +23,14 @@ export const MAIN_NAV_ITEMS: MainNavItem[] = [
     label: "More",
     href: "/#more",
     children: [
-      { label: "FAQ", href: "/#faq" },
+      { label: "What Parent Often Discover", href: "/#parents-discover" },
+      { label: "Blog" },
+      { label: "TEEN NEXT STEP Overview" },
+      { label: "Our Team" },
+      { label: "Client Referral Program" },
+      { label: "Careers" },
+      { label: "Terms & Privacy" },
       { label: "Contact Us", href: "/contact" },
-      { label: "Privacy Policy", href: "/#privacy" },
-      { label: "Terms of Service", href: "/#terms" },
     ],
   },
 ];
@@ -67,16 +72,23 @@ export const loginTriggerClassName =
 
 /** Shared frosted dropdown panel — Login, dashboard role, and main nav submenus */
 export const loginDropdownContentClassName =
-  "w-auto min-w-[198px] max-w-[calc(100vw-2rem)] gap-[10px] rounded-none border-0 bg-[#0000007A] p-0 px-[22px] py-[17px] text-white shadow-none backdrop-blur-[4px]";
+  "w-auto min-w-[198px] max-w-[calc(100vw-2rem)] gap-[10px] rounded-none border-0 bg-[#0000007A] p-0 px-[22px] py-[17px] text-white shadow-none ring-0 backdrop-blur-[4px] supports-backdrop-filter:backdrop-blur-[4px]";
 
 export const loginDropdownItemClassName =
   "whitespace-nowrap rounded-md px-2 py-2 text-base font-normal text-white hover:bg-white/15 focus:bg-white/15 focus:text-white";
 
+export const loginDropdownItemDisabledClassName =
+  "cursor-not-allowed opacity-50 hover:bg-transparent focus:bg-transparent";
+
 export function isNavLinkActive(
   pathname: string,
   hash: string,
-  href: string,
+  href: string | undefined,
 ): boolean {
+  if (!href) {
+    return false;
+  }
+
   const [path, anchor] = href.split("#");
 
   if (anchor) {
@@ -92,8 +104,8 @@ export function isNavItemActive(
   item: MainNavItem,
 ): boolean {
   if (item.children?.length) {
-    return item.children.some((child) =>
-      isNavLinkActive(pathname, hash, child.href),
+    return item.children.some(
+      (child) => child.href && isNavLinkActive(pathname, hash, child.href),
     );
   }
 

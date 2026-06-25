@@ -8,6 +8,11 @@ import ApiResponseProvider from "@/lib/providers/ApiProvider";
 export const metadata: Metadata = {
   title: "Teen Next",
   description: "Teen Next application",
+  icons: {
+    icon: "/images/landing-page/favicon.png",
+    shortcut: "/images/landing-page/favicon.png",
+    apple: "/images/landing-page/favicon.png",
+  },
 };
 
 export default function RootLayout({
