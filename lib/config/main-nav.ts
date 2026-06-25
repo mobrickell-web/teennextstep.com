@@ -1,11 +1,18 @@
-export type MainNavLink = {
+/** Submenu link — omit `href` when the destination page is not ready. */
+export type MainNavChildLink = {
   label: string;
-  /** Omit when the destination page is not ready — item renders disabled in menus. */
   href?: string;
 };
 
-export type MainNavItem = MainNavLink & {
-  children?: MainNavLink[];
+export type MainNavItem = {
+  label: string;
+  href: string;
+  children?: MainNavChildLink[];
+};
+
+export type MainNavLink = {
+  label: string;
+  href: string;
 };
 
 /** Public marketing site navigation — landing page sections */
