@@ -31,7 +31,7 @@ export const MAIN_NAV_ITEMS: MainNavItem[] = [
     href: "/#more",
     children: [
       { label: "What Parent Often Discover", href: "/#parents-discover" },
-      { label: "Blog" },
+      { label: "Blog", href: "/#blog" },
       { label: "FAQ's" , href: "/#faq" },
       { label: "TEEN NEXT STEP Overview" },
       { label: "Our Team" },

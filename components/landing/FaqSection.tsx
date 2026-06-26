@@ -23,7 +23,6 @@ export default function FaqSection() {
 
   return (
     <section
-      id="faq"
       aria-labelledby="faq-insight-heading"
       className="relative w-full overflow-hidden bg-white py-12 sm:py-14 lg:py-16"
     >
@@ -51,11 +50,15 @@ export default function FaqSection() {
           </Typography>
         </div>
 
-        <div className="relative z-10 mt-8 grid gap-5 sm:grid-cols-2 lg:mt-10 lg:grid-cols-5 lg:gap-5">
+        <div
+          id="blog"
+          className="relative z-10 mt-8 grid scroll-mt-[var(--site-navbar-height)] gap-5 sm:grid-cols-2 lg:mt-10 lg:grid-cols-5 lg:gap-5"
+        >
           {cards.map((card) => (
-            <article
+            <Link
               key={card.title}
-              className="flex h-full flex-col overflow-hidden rounded-[8.22px] border-[3.12px]"
+              href={card.href}
+              className="group flex h-full flex-col overflow-hidden rounded-[8.22px] border-[3.12px] transition-shadow hover:shadow-md"
               style={{ backgroundColor: CARD_BORDER, borderColor: CARD_BORDER }}
             >
               <div className="relative aspect-[364/248] w-full overflow-hidden">
@@ -64,7 +67,7 @@ export default function FaqSection() {
                   alt={card.imageAlt}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 />
               </div>
 
@@ -86,25 +89,11 @@ export default function FaqSection() {
                 </Typography>
               </div>
 
-              {card.href === "#" ? (
-                <span
-                  role="link"
-                  aria-disabled="true"
-                  className="mt-3 flex items-center justify-center gap-1.5 rounded-b-[8.41px] bg-white px-3 py-3 text-[13px] font-semibold text-primary"
-                >
-                  {ctaLabel}
-                  <ChevronRight className="size-4 shrink-0" aria-hidden />
-                </span>
-              ) : (
-                <Link
-                  href={card.href}
-                  className="mt-3 flex items-center justify-center gap-1.5 rounded-b-[8.41px] bg-white px-3 py-3 text-[13px] font-semibold text-primary transition-colors hover:bg-primary/5"
-                >
-                  {ctaLabel}
-                  <ChevronRight className="size-4 shrink-0" aria-hidden />
-                </Link>
-              )}
-            </article>
+              <span className="mt-3 flex items-center justify-center gap-1.5 rounded-b-[8.41px] bg-white px-3 py-3 text-[13px] font-semibold text-primary transition-colors group-hover:bg-primary/5">
+                {ctaLabel}
+                <ChevronRight className="size-4 shrink-0" aria-hidden />
+              </span>
+            </Link>
           ))}
         </div>
 
@@ -124,9 +113,10 @@ export default function FaqSection() {
           </Typography>
 
           <Accordion
+            id="faq"
             type="single"
             collapsible
-            className="grid w-full gap-3 sm:gap-4 md:grid-cols-2"
+            className="grid w-full scroll-mt-[var(--site-navbar-height)] gap-3 sm:gap-4 md:grid-cols-2"
           >
             {faq.items.map((item, index) => (
               <AccordionItem

@@ -11,11 +11,10 @@ export const FOOTER_QUICK_LINKS = [
   { label: "Why Us", href: "/#why-us" },
   { label: "Why Parents Trust Us", href: "/#why-parents-trust-us" },
   { label: "Our 4 Steps", href: "/#four-step-process" },
-  { label: "What's Included", href: "/parent-teen-alignment-system" },
-  { label: "A Small Investment", href: "/#small-investment" },
+  { label: "What's Included", href: "/#complete-process" },
   { label: "If Parent & Teen Paths Differ", href: "/#different-paths" },
   { label: "What Parents Often Discover", href: "/#parents-discover" },
-  { label: "Blog", href: "/#faq" },
+  { label: "Blog", href: "/#blog" },
   { label: "FAQ's", href: "/#faq" },
   { label: "Teen Insight Overview", href: "/signup" },
 ] as const;

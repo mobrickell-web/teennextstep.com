@@ -34,3 +34,4 @@ export * from "./why-investing";
 export * from "./contact";
 export * from "./free-parent-insight";
 export * from "./teen-statement";
+export * from "./blog";
