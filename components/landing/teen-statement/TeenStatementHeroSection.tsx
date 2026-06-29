@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { LANDING_HERO_HEADING_SIZE } from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
 
 import {
@@ -34,7 +35,7 @@ export default function TeenStatementHeroSection() {
             id="teen-statement-hero-heading"
             variant="h1"
             as="h1"
-            className="text-[clamp(28px,4vw,48px)] font-[800] leading-[131%] text-white"
+            className={`${LANDING_HERO_HEADING_SIZE} font-[800] leading-[131%] text-white`}
           >
             {heading}
           </Typography>

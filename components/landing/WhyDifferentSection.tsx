@@ -4,7 +4,10 @@ import Image from "next/image";
 import { useState, type KeyboardEvent } from "react";
 import { X } from "lucide-react";
 
-import { LANDING_SECTION_HEADING_PRIMARY } from "@/components/landing/landing-styles";
+import {
+  LANDING_CONTENT_HEADING_SIZE,
+  LANDING_SECTION_HEADING_PRIMARY,
+} from "@/components/landing/landing-styles";
 import { LandingCtaBlock } from "@/components/landing/LandingCtaBlock";
 import {
   Dialog,
@@ -80,8 +83,8 @@ export default function WhyDifferentSection() {
                 as="h2"
                 className={LANDING_SECTION_HEADING_PRIMARY}
               >
-                <span className="block">{intro.heading.line1}</span>
-                <span className="block">{intro.heading.line2}</span>
+                <span className="inline md:block">{intro.heading.line1} </span>
+                <span className="inline md:block">{intro.heading.line2}</span>
               </Typography>
 
               <Typography
@@ -213,7 +216,7 @@ export default function WhyDifferentSection() {
         >
           {activePopup ? (
             <>
-              <DialogTitle className="pr-10 text-left text-[clamp(18px,2.2vw,24px)] font-[800] leading-[131%] text-primary">
+              <DialogTitle className={`pr-10 text-left leading-[131%] text-primary ${LANDING_CONTENT_HEADING_SIZE} font-[800]`}>
                 {activePopup.title}
               </DialogTitle>
 

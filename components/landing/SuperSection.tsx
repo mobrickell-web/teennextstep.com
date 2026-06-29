@@ -57,7 +57,7 @@ export default function SuperSection() {
               id="super-section-heading"
               variant="h1"
               as="h1"
-              className="text-[36px] leading-[1.12] font-extrabold text-white sm:text-[44px] lg:text-[52px] xl:text-[56px]"
+              className="text-[20px] leading-[1.12] font-extrabold text-white sm:text-[44px] lg:text-[52px] xl:text-[56px]"
             >
               <span className="block">{headline.before}</span>
               <span className="block sm:whitespace-nowrap">
@@ -95,14 +95,14 @@ export default function SuperSection() {
           </ul>
         </div>
 
-        <div className="mt-6 flex w-full flex-col items-start gap-6 sm:flex-row sm:gap-4 lg:mt-8 lg:gap-5">
+        <div className="mt-6 flex w-full flex-col items-center gap-6 sm:flex-row sm:items-start sm:gap-4 lg:mt-8 lg:gap-5">
           <LandingCtaBlock
             href={primaryCta.href}
             label={primaryCta.label}
             caption={primaryCta.caption}
             variant="primary"
             theme="dark"
-            className="items-start"
+            className="items-center sm:items-start"
           />
           <LandingCtaBlock
             href={secondaryCta.href}
@@ -110,7 +110,7 @@ export default function SuperSection() {
             caption={secondaryCta.caption}
             variant="secondary"
             theme="dark"
-            className="items-start"
+            className="items-center sm:items-start"
           />
         </div>
       </div>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { LANDING_CONTENT_HEADING_SIZE_LG } from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
 
 import { PARENT_INSIGHT_WELCOME_CONTENT } from "@/components/landing/parent-insight-assessment/content/welcome-section";
@@ -89,7 +90,7 @@ export default function ParentInsightWelcomeSection() {
             id="parent-insight-welcome-heading"
             variant="h2"
             as="h1"
-            className="text-center text-[clamp(22px,4vw,36px)] font-[800] leading-[131%] text-primary"
+            className={`text-center leading-[131%] text-primary ${LANDING_CONTENT_HEADING_SIZE_LG} font-[800]`}
           >
             {heading}
           </Typography>
@@ -140,7 +141,7 @@ export default function ParentInsightWelcomeSection() {
           <Typography
             variant="h2"
             as="h2"
-            className="mt-6 text-center text-[clamp(26px,5vw,44.59px)] font-[800] leading-[110%] tracking-normal text-[#1B2A49]"
+            className="mt-6 text-center text-[20px] font-[800] leading-[110%] tracking-normal text-[#1B2A49] md:text-[clamp(26px,5vw,44.59px)]"
           >
             {readyHeading}
           </Typography>

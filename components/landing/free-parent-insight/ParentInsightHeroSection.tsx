@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { LANDING_HERO_HEADING_SIZE } from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
 
 import {
@@ -35,7 +36,7 @@ export default function ParentInsightHeroSection() {
             id="parent-insight-hero-heading"
             variant="h1"
             as="h1"
-            className="text-[clamp(28px,4vw,48px)] font-[800] leading-[131%] text-white"
+            className={`${LANDING_HERO_HEADING_SIZE} font-[800] leading-[131%] text-white`}
           >
             {heading}
           </Typography>
@@ -51,7 +52,7 @@ export default function ParentInsightHeroSection() {
           <Typography
             variant="h5"
             as="h2"
-            className="mt-5 text-[clamp(18px,2.2vw,28px)] font-[800] leading-[131%] text-white sm:mt-6"
+            className="mt-5 text-[20px] font-[800] leading-[131%] text-white md:text-[clamp(18px,2.2vw,28px)] sm:mt-6"
           >
             {heading2}
           </Typography>

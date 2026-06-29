@@ -45,12 +45,12 @@ export default function Footer() {
         <Typography
           variant="h3"
           as="p"
-          className="text-center text-[clamp(18px,2.5vw,28px)] font-[800] leading-[131%] text-white"
+          className="hidden text-center text-[clamp(18px,2.5vw,28px)] font-[800] leading-[131%] text-white sm:block"
         >
           {FOOTER_TAGLINE}
         </Typography>
 
-        <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-8 xl:gap-12">
+        <div className="mt-0 grid gap-10 sm:mt-10 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-8 xl:gap-12">
           <div className="flex flex-col gap-5 sm:col-span-2 lg:col-span-1">
             <Logo
               href="/"
@@ -163,7 +163,7 @@ export default function Footer() {
           <Typography
             variant="muted-sm"
             as="p"
-            className="text-right text-[13px] text-white/90"
+            className="text-center text-[13px] text-white/90 sm:text-right"
           >
             © {new Date().getFullYear()} Teen Next Step All rights reserved.
           </Typography>

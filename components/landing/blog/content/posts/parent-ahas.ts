@@ -1,12 +1,16 @@
 import type { BlogPost } from "@/components/landing/blog/types";
 import {
   BLOG_PARENT_AHAS_CHANGES_ALT,
-  BLOG_PARENT_AHAS_CHANGES_IMAGE,
   BLOG_PARENT_AHAS_HERO_ALT,
-  BLOG_PARENT_AHAS_HERO_IMAGE,
   BLOG_PARENT_AHAS_MOMENTS_ALT,
-  BLOG_PARENT_AHAS_MOMENTS_IMAGE,
 } from "@/components/landing/blog/content/blog-assets";
+
+const PARENT_AHAS_HERO_IMAGE =
+  "/images/landing-page/blog/parent-ahas-full-picture.png";
+const PARENT_AHAS_MOMENTS_IMAGE =
+  "/images/landing-page/blog/rectangle-186.png";
+const PARENT_AHAS_CHANGES_IMAGE =
+  "/images/landing-page/blog/rectangle-187.png";
 
 export const PARENT_AHAS_POST: BlogPost = {
   slug: "parent-ahas-full-picture",
@@ -20,7 +24,7 @@ export const PARENT_AHAS_POST: BlogPost = {
   ],
   excerpt:
     "The biggest shift occurs when parents finally see what's really going on. Discover what changes everything—and why most don't see it early enough.",
-  heroImage: BLOG_PARENT_AHAS_HERO_IMAGE,
+  heroImage: PARENT_AHAS_HERO_IMAGE,
   heroImageAlt: BLOG_PARENT_AHAS_HERO_ALT,
   publishedAt: "2026-02-10",
   blocks: [
@@ -132,6 +136,7 @@ export const PARENT_AHAS_POST: BlogPost = {
     },
     {
       type: "twoColumn",
+      imageSize: "large",
       left: [
         {
           type: "numberedPoint",
@@ -264,7 +269,7 @@ export const PARENT_AHAS_POST: BlogPost = {
         },
       ],
       image: {
-        src: BLOG_PARENT_AHAS_MOMENTS_IMAGE,
+        src: PARENT_AHAS_MOMENTS_IMAGE,
         alt: BLOG_PARENT_AHAS_MOMENTS_ALT,
         aspectClass: "aspect-[4/3]",
       },
@@ -283,23 +288,24 @@ export const PARENT_AHAS_POST: BlogPost = {
     },
     {
       type: "twoColumn",
+      imageSize: "large",
       left: [
         {
           type: "numberedPoint",
           number: 1,
           hideNumber: true,
-          title: "Conversations Become More Focused",
+          title: "Communication Becomes More Focused",
           paragraphs: [
             [
               {
-                text: "Instead of talking in circles, you're talking about the things that actually matter.",
+                text: "Instead of repeating the same discussions, conversations become:",
               },
             ],
           ],
           bullets: [
             "More productive",
-            "Less emotional",
-            "More focused on solutions",
+            "More honest",
+            "More forward-moving",
           ],
         },
         {
@@ -310,14 +316,14 @@ export const PARENT_AHAS_POST: BlogPost = {
           paragraphs: [
             [
               {
-                text: "You're no longer making decisions based on guesswork or frustration. You're making them based on data and understanding.",
+                text: "Rather than relying on assumptions, decisions are based on:",
               },
             ],
           ],
           bullets: [
-            "Clearer goals",
-            "More consistent parenting",
-            "Less second-guessing",
+            "Clear insight",
+            "Shared understanding",
+            "Realistic readiness",
           ],
         },
         {
@@ -328,15 +334,16 @@ export const PARENT_AHAS_POST: BlogPost = {
           paragraphs: [
             [
               {
-                text: "When a teen feels understood, they're much less likely to push back.",
+                text: "When teens feel:",
               },
             ],
           ],
           bullets: [
-            "Less conflict",
-            "More cooperation",
-            "A more positive home environment",
+            "Understood",
+            "Included",
+            "Aligned",
           ],
+          closing: [[{ text: "They are far more likely to engage." }]],
         },
         {
           type: "numberedPoint",
@@ -346,52 +353,52 @@ export const PARENT_AHAS_POST: BlogPost = {
           paragraphs: [
             [
               {
-                text: "Knowing that you have a plan and that you're moving in the right direction changes everything.",
+                text: "Parents feel more certain about the direction.",
               },
             ],
             [
               {
-                text: "You feel more confident as a parent, and your teen feels more confident in their ability to succeed.",
+                text: "Teens feel more confident stepping into it.",
               },
             ],
           ],
         },
       ],
       image: {
-        src: BLOG_PARENT_AHAS_CHANGES_IMAGE,
+        src: PARENT_AHAS_CHANGES_IMAGE,
         alt: BLOG_PARENT_AHAS_CHANGES_ALT,
         aspectClass: "aspect-[4/3]",
       },
     },
     {
       type: "heading",
-      text: "Why Most Parents Don't Experience This Sooner",
+      text: "Why Most Parents Don’t Experience This Sooner",
     },
     {
       type: "paragraph",
       segments: [
         {
-          text: "It's not because they don't care. It's because they're missing the tools.",
+          text: "Not because they’re doing anything wrong.",
         },
       ],
     },
     {
       type: "paragraph",
-      segments: [{ text: "Most parenting advice is:" }],
+      segments: [{ text: "But because most traditional approaches:" }],
     },
     {
       type: "bullets",
       items: [
-        "Too general",
-        "Not based on your specific situation",
-        "Focused on the behavior, not the root cause",
+        "Focus on outcomes before clarity",
+        "Emphasize decisions before alignment",
+        "Rely on assumptions instead of structured insight",
       ],
     },
     {
       type: "paragraph",
       segments: [
         {
-          text: "Teen Next Step is different. It's designed to give you the specific insight you need to understand your unique teen and your unique relationship with them.",
+          text: "Without a system to bring everything into view, these realizations simply don’t happen as clearly—or as early—as they could.",
         },
       ],
     },
@@ -403,36 +410,32 @@ export const PARENT_AHAS_POST: BlogPost = {
       type: "paragraph",
       segments: [
         {
-          text: "The Teen Next Step Parent–Teen Alignment System is more than just a survey. It's a comprehensive look at the dynamics in your relationship and the internal factors driving your teen's behavior.",
+          text: "The Teen Next Step 8-Part Parent–Teen Alignment System is designed to do one thing extremely well:",
         },
-      ],
-    },
-    {
-      type: "paragraph",
-      segments: [
         {
-          text: "It's the first step toward moving from \"I hope this works\" to \"I know exactly what's going on.\"",
+          text: " Help parents and teens see what’s really going on—clearly and objectively.",
+          bold: true,
         },
       ],
     },
     {
       type: "paragraph",
-      segments: [{ text: "It provides clarity on:" }],
+      segments: [{ text: "By combining:" }],
     },
     {
       type: "bullets",
       items: [
-        "Internal motivation",
-        "External pressure and expectations",
-        "Alignment between parent and teen",
-        "Specific steps for improvement",
+        "Structured profiles",
+        "Side-by-side comparison",
+        "Alignment insights",
+        "And a guided next-step roadmap",
       ],
     },
     {
       type: "paragraph",
       segments: [
         {
-          text: "It's the tool that turns the light on, so you can see the path forward clearly.",
+          text: "It turns uncertainty into clarity—and clarity into direction.",
         },
       ],
     },
@@ -444,7 +447,7 @@ export const PARENT_AHAS_POST: BlogPost = {
       type: "paragraph",
       segments: [
         {
-          text: "\"Peace\" isn't the absence of conflict. It's the presence of clarity.",
+          text: "These “aha” moments aren’t random.",
         },
       ],
     },
@@ -452,7 +455,7 @@ export const PARENT_AHAS_POST: BlogPost = {
       type: "paragraph",
       segments: [
         {
-          text: "When you have clarity, you have the power to change the dynamic in your home.",
+          text: "They happen when the right information becomes visible.",
         },
       ],
     },
@@ -460,15 +463,7 @@ export const PARENT_AHAS_POST: BlogPost = {
       type: "paragraph",
       segments: [
         {
-          text: "You can move from frustration and confusion to a place of understanding, cooperation, and confidence.",
-        },
-      ],
-    },
-    {
-      type: "paragraph",
-      segments: [
-        {
-          text: "And that's when your teen can truly start to thrive—not just in school, but in life.",
+          text: "Because when parents finally see the full picture, they stop guessing And start guiding with confidence.",
         },
       ],
     },
@@ -480,7 +475,7 @@ export const PARENT_AHAS_POST: BlogPost = {
       type: "paragraph",
       segments: [
         {
-          text: "If you're ready to stop guessing and start leading with clarity, the FREE Parent Insight Assessment is the place to start.",
+          text: "If you’d like to experience this level of clarity for yourself, the first step is simple.",
         },
       ],
     },
@@ -488,23 +483,23 @@ export const PARENT_AHAS_POST: BlogPost = {
       type: "paragraph",
       segments: [
         {
-          text: "It's a simple, effective way to get the insight you need to help your teen take their next step with confidence.",
+          text: "A short, structured Parent Alignment Insight can quickly help you begin to see:",
         },
       ],
     },
     {
       type: "bullets",
       items: [
-        "Understand your teen's internal motivations",
-        "Identify alignment gaps between you and your teen",
-        "Create a clear roadmap for moving forward together",
+        "Where your teen stands",
+        "Where alignment exists",
+        "And where greater clarity may be needed",
       ],
     },
     {
       type: "paragraph",
       segments: [
         {
-          text: "Don't wait for things to get worse. Get the clarity you need today to help your teen build a better future.",
+          text: "From there, the full Teen Next Step system can guide you and your teen forward with a clearer, more confident path.",
         },
       ],
     },

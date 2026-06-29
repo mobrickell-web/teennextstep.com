@@ -22,10 +22,10 @@ export const FOOTER_QUICK_LINKS = [
 export const FOOTER_SECONDARY_LINKS = [
   { label: "TEEN NEXT STEP Overview", href: "/parent-teen-alignment-system" },
   { label: "Our Team", href: "/#contact" },
-  { label: "Client Referral Program", href: "/#contact" },
-  { label: "Careers", href: "/#contact" },
-  { label: "Terms & Privacy", href: "/#privacy" },
-  { label: "Contact Us", href: "/#contact" },
+  { label: "Client Referral Program", href: "/referral-program" },
+  { label: "Careers", href: "/careers" },
+  { label: "Terms & Privacy", href: "/terms-privacy" },
+  { label: "Contact Us", href: "/contact" },
 ] as const;
 
 export const FOOTER_SOCIAL_LINKS = [

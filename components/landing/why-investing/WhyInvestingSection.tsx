@@ -71,7 +71,7 @@ export default function WhyInvestingSection() {
             id="why-investing-heading"
             variant="h1"
             as="h1"
-            className="mx-auto max-w-[1488px] text-center text-[clamp(24px,4.6vw,53.41px)] font-[800] leading-[110%] tracking-normal text-white"
+            className="mx-auto max-w-[1488px] text-center text-[20px] font-[800] leading-[110%] tracking-normal text-white md:text-[clamp(24px,4.6vw,53.41px)]"
           >
             {hero.heading}
           </Typography>
@@ -137,7 +137,7 @@ export default function WhyInvestingSection() {
         <div className="mx-auto mt-12 w-full max-w-[1607px] rounded-[8.99px] bg-[#EAEAEA] px-6 py-8 text-center sm:px-10 lg:mt-16">
           <Typography
             as="p"
-            className="text-center text-[clamp(18px,2.4vw,28px)] font-[800] leading-[131%] text-[#194783]"
+            className="text-center text-[20px] font-[800] leading-[131%] text-[#194783] md:text-[clamp(18px,2.4vw,28px)]"
           >
             {banner}
           </Typography>

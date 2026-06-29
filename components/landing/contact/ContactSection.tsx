@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
+import { LANDING_SECTION_HEADING_SIZE } from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
 
 import { CONTACT_CONTENT } from "@/components/landing/contact/content/contact-section";
@@ -44,7 +45,7 @@ export default function ContactSection() {
             id="contact-heading"
             variant="h1"
             as="h1"
-            className="text-center text-[clamp(30px,5vw,53.41px)] font-[800] leading-[100%] tracking-normal text-white"
+            className="text-center text-[20px] font-[800] leading-[100%] tracking-normal text-white md:text-[clamp(30px,5vw,53.41px)]"
           >
             {hero.heading}
           </Typography>
@@ -163,7 +164,7 @@ export default function ContactSection() {
         <div className="mt-12 lg:mt-14">
           <Typography
             as="h2"
-            className="text-[clamp(24px,3.4vw,40px)] font-[800] leading-[110%] text-[#194783]"
+            className={`${LANDING_SECTION_HEADING_SIZE} font-[800] leading-[110%] text-[#194783]`}
           >
             {ambassador.heading}
           </Typography>

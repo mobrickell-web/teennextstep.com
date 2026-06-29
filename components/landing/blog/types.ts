@@ -4,8 +4,14 @@ export type BlogTextSegment = {
 };
 
 export type BlogContentBlock =
-  | { type: "paragraph"; segments: BlogTextSegment[] }
-  | { type: "heading"; text: string }
+  | { type: "paragraph"; segments: BlogTextSegment[]; className?: string }
+  | {
+      type: "lineGroup";
+      items: (string | BlogTextSegment[])[];
+      /** Default: tight (130% leading, no gap). */
+      spacing?: "tight" | "relaxed";
+    }
+  | { type: "heading"; text: string; className?: string }
   | { type: "bullets"; items: string[] }
   | {
       type: "numberedPoint";
@@ -22,7 +28,17 @@ export type BlogContentBlock =
   | {
       type: "twoColumn";
       left: BlogContentBlock[];
-      image: { src: string; alt: string; aspectClass?: string };
+      image: {
+        src: string;
+        alt: string;
+        aspectClass?: string;
+        /** Extra classes on the image wrapper (e.g. top offset to align with a heading). */
+        wrapperClassName?: string;
+      };
+      /** Larger infographic column on desktop (default: 420px max). */
+      imageSize?: "default" | "large";
+      /** Tighter vertical gap between left-column blocks (matches article body spacing). */
+      leftSpacing?: "default" | "compact";
     };
 
 export type BlogPostFooterCta = {
@@ -40,6 +56,8 @@ export type BlogPost = {
   title: string;
   /** When set, the hero renders each line on its own row instead of a single title string. */
   titleLines?: BlogTitleLine[];
+  /** On mobile, render title lines inline as one flowing line; stacked from md up. */
+  titleInlineOnMobile?: boolean;
   excerpt: string;
   heroImage: string;
   heroImageAlt: string;

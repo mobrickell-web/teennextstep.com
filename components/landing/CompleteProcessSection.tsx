@@ -24,10 +24,10 @@ export default function CompleteProcessSection() {
             id="complete-process-heading"
             variant="h2"
             as="h2"
-            className={LANDING_SECTION_HEADING_PRIMARY}
+            className={`w-full max-w-5xl text-balance leading-[131%] ${LANDING_SECTION_HEADING_PRIMARY}`}
           >
-            <span className="block">{heading.line1}</span>
-            <span className="block">{heading.line2}</span>
+            <span className="inline md:block">{heading.line1} </span>
+            <span className="inline md:block">{heading.line2}</span>
           </Typography>
 
           <Typography

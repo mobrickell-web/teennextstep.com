@@ -7,7 +7,7 @@ type BlogPostFooterProps = {
 
 export default function BlogPostFooter({ cta }: BlogPostFooterProps) {
   return (
-    <div className="border-t border-[#EAEAEA] bg-[#EAEAEA] px-[49px] py-8 sm:py-10">
+    <div className="border-t border-[#EAEAEA] bg-[#EAEAEA] px-4 pt-4 pb-8 sm:px-8 sm:pt-5 sm:pb-10 md:px-[49px]">
       <div className="flex w-full flex-col items-center gap-6 sm:flex-row sm:flex-wrap sm:items-start sm:justify-center sm:gap-3 lg:gap-4">
         <LandingCtaBlock
           href={cta.primary.href}

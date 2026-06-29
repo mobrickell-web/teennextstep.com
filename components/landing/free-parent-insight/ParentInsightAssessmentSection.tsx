@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { LANDING_CONTENT_HEADING_SIZE_LG, LANDING_SUBSECTION_HEADING_SIZE } from "@/components/landing/landing-styles";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Typography } from "@/components/ui/typography";
@@ -135,7 +136,7 @@ export default function ParentInsightAssessmentSection() {
               id="parent-insight-assessment-heading"
               variant="h2"
               as="h2"
-              className="text-[clamp(22px,3.2vw,36px)] font-[800] leading-[131%] text-secondary"
+              className={`${LANDING_CONTENT_HEADING_SIZE_LG} font-[800] leading-[131%] text-secondary`}
             >
               {header.title}
             </Typography>
@@ -217,7 +218,7 @@ export default function ParentInsightAssessmentSection() {
                 <Typography
                   variant="h2"
                   as="h2"
-                  className="text-[clamp(22px,3vw,32px)] font-[800] leading-[131%] text-primary"
+                  className={`${LANDING_SUBSECTION_HEADING_SIZE} font-[800] leading-[131%] text-primary`}
                 >
                   {resultsForm.heading}
                 </Typography>

@@ -2,7 +2,7 @@ import { SMALL_INVESTMENT_SECTION_CONTENT } from "./small-investment-section";
 
 export const FAQ_SECTION_CONTENT = {
   sectionNumber: "08",
-  heading: "Clear Insight for Parents Navigating Their Teen's Future",
+  heading: "Clear Insight Blog Articles for Parents Navigating Their Teen's Future",
   subheading:
     "Understand what's really going on — and how to move forward with clarity and confidence",
   ctaLabel: "View More",

@@ -17,7 +17,7 @@ export const SECURE_PAYMENT_CONTENT = {
     ],
     priceBox: {
       label: "Your Parent-Teen Next-Step Alignment System",
-      amount: "$1487",
+      amount: "$5800",
       note: "A small investment compared to the years and thousands many families spend correcting the wrong path.",
     },
     footerNote:
@@ -41,8 +41,8 @@ export const SECURE_PAYMENT_CONTENT = {
     refund: {
       heading: "30-Day Refund Policy",
       paragraphs: [
-        "You may request a full refund within 30 days of purchase if you have not completed your Parent or Teen Alignment Profiles and have not received personalized guidance from your Teen Next Step Ambassador.",
-        "Approved refunds are typically processed within 5-10 business days.",
+        "You may request a full refund within 30 days of purchase if your teen has not completed their profile and your final parent–teen results and guidance have not yet been delivered. Once profiles are completed and results are available, the program is considered delivered and is no longer refundable.",
+        "Approved refunds are typically processed within 5–10 business days.",
       ],
     },
     trustItems: [

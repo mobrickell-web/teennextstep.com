@@ -69,10 +69,10 @@ export default function WhyParentsSection() {
             id="why-parents-heading"
             variant="h2"
             as="h2"
-            className={`order-2 mx-auto max-w-full whitespace-nowrap text-center ${LANDING_SECTION_HEADING_PRIMARY} lg:col-span-2 lg:row-start-1`}
+            className={`order-2 w-full max-w-5xl text-balance text-left leading-[131%] lg:col-span-2 lg:row-start-1 lg:mx-auto lg:text-center ${LANDING_SECTION_HEADING_PRIMARY}`}
           >
-            <span className="inline">{heading.line1}</span>{" "}
-            <span className="inline">{heading.line2}</span>
+            <span className="inline md:block">{heading.line1} </span>
+            <span className="inline md:block">{heading.line2}</span>
           </Typography>
 
           <div className="order-3 flex flex-col gap-5 sm:gap-6 lg:col-start-1 lg:row-start-2">

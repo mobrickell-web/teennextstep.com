@@ -1,6 +1,9 @@
 export const TEENAGE_YEARS_SECTION_CONTENT = {
   sectionNumber: "02",
-  heading: "The Teenage Years Shape Everything That Comes Next",
+  heading: {
+    line1: "The Teenage Years Shape Everything",
+    line2: "That Comes Next",
+  },
   tags: [
     "Direction",
     "Confidence",

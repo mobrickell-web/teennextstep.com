@@ -101,7 +101,7 @@ export const TEEN_STATEMENT_ASSESSMENT_CONTENT = {
     submitLabel: "Get My Teen Statement Results Instantly",
     privacyText: "We respect your privacy. No spam, ever.",
     privacyLinkLabel: "View our privacy policy.",
-    privacyHref: "/#privacy",
+    privacyHref: "/terms-privacy",
     image: {
       src: TEEN_STATEMENT_DASHBOARD_IMAGE,
       alt: "Teen Statement Dashboard displayed on a laptop",

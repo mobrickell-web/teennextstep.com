@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { LANDING_SUBSECTION_HEADING_SIZE } from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
 
 import { RESULTS_READY_CONTENT } from "@/components/landing/results-ready/content/results-ready-section";
@@ -63,7 +64,7 @@ export default function ResultsReadySection() {
             id="results-ready-heading"
             variant="h1"
             as="h1"
-            className="text-center text-[clamp(22px,6vw,53.41px)] font-[800] leading-[115%] tracking-normal text-white"
+            className="text-center text-[20px] font-[800] leading-[115%] tracking-normal text-white md:text-[clamp(22px,6vw,53.41px)]"
           >
             {hero.heading}
           </Typography>
@@ -85,7 +86,7 @@ export default function ResultsReadySection() {
             <Typography
               variant="body-semibold"
               as="h2"
-              className="text-[clamp(22px,3vw,32px)] font-[800] leading-[131%] text-[#194783]"
+              className={`${LANDING_SUBSECTION_HEADING_SIZE} font-[800] leading-[131%] text-[#194783]`}
             >
               {handToTeen.heading}
             </Typography>
@@ -132,7 +133,7 @@ export default function ResultsReadySection() {
             <Typography
               variant="body-semibold"
               as="h2"
-              className="text-[clamp(22px,3vw,32px)] font-[800] leading-[131%] text-[#194783]"
+              className={`${LANDING_SUBSECTION_HEADING_SIZE} font-[800] leading-[131%] text-[#194783]`}
             >
               {sendLink.heading}
             </Typography>
@@ -164,7 +165,7 @@ export default function ResultsReadySection() {
           <Typography
             variant="body-semibold"
             as="h2"
-            className="text-[clamp(22px,3vw,32px)] font-[800] leading-[131%] text-[#194783]"
+            className={`${LANDING_SUBSECTION_HEADING_SIZE} font-[800] leading-[131%] text-[#194783]`}
           >
             {whatHappensNext.heading}
           </Typography>
@@ -187,7 +188,7 @@ export default function ResultsReadySection() {
           <Typography
             variant="body-semibold"
             as="h2"
-            className="text-[clamp(22px,3vw,32px)] font-[800] leading-[131%] text-[#194783]"
+            className={`${LANDING_SUBSECTION_HEADING_SIZE} font-[800] leading-[131%] text-[#194783]`}
           >
             {accessToResults.heading}
           </Typography>

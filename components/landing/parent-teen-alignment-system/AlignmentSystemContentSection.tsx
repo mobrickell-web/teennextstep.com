@@ -5,11 +5,12 @@ import type { ReactNode } from "react";
 import { Typography } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
+import { LANDING_CONTENT_HEADING_SIZE_LG } from "@/components/landing/landing-styles";
 import { LANDING_PRIMARY_CTA_BG } from "@/components/landing/LandingCtaBlock";
 import { ALIGNMENT_SYSTEM_CONTENT } from "@/components/landing/parent-teen-alignment-system/content/alignment-system-content";
 
 const sectionHeadingClass =
-  "text-[clamp(22px,3vw,36px)] font-[800] leading-[131%] text-primary";
+  `${LANDING_CONTENT_HEADING_SIZE_LG} font-[800] leading-[131%] text-primary`;
 const bodyClass = "text-sm leading-relaxed text-foreground sm:text-base";
 const sectionGap = "space-y-10 sm:space-y-12 lg:space-y-14";
 

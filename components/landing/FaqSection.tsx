@@ -36,7 +36,7 @@ export default function FaqSection() {
             id="faq-insight-heading"
             variant="h2"
             as="h2"
-            className={`leading-[131%] ${LANDING_SECTION_HEADING_PRIMARY}`}
+            className={`text-balance leading-[131%] ${LANDING_SECTION_HEADING_PRIMARY}`}
           >
             {heading}
           </Typography>

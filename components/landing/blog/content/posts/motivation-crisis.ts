@@ -308,7 +308,7 @@ export const MOTIVATION_CRISIS_POST: BlogPost = {
         {
           type: "numberedPoint",
           number: 3,
-          title: "Supporting Autonomy",
+          title: "Supporting Autonomous Decision-Making",
           paragraphs: [
             [
               {
@@ -317,12 +317,13 @@ export const MOTIVATION_CRISIS_POST: BlogPost = {
             ],
           ],
           bullets: [
-            "Evaluate options",
-            "Identify strengths",
-            "Uncover gaps",
+            "Evaluate available options",
+            "Identify natural strengths",
+            "Recognize knowledge or skill gaps",
+            "Build a realistic action plan",
           ],
           closing: [
-            [{ text: "Structure replaces overwhelm with confidence." }],
+            [{ text: "A clear structure replaces uncertainty with confidence." }],
           ],
         },
       ],

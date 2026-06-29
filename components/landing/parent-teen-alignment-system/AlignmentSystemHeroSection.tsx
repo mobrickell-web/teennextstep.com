@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { LANDING_HERO_HEADING_SIZE } from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
 
 import {
@@ -34,7 +35,7 @@ export default function AlignmentSystemHeroSection() {
             id="alignment-system-hero-heading"
             variant="h1"
             as="h1"
-            className="text-[clamp(28px,4vw,48px)] font-[800] leading-[131%] text-white"
+            className={`${LANDING_HERO_HEADING_SIZE} font-[800] leading-[131%] text-white`}
           >
             {heading}
           </Typography>
@@ -42,7 +43,7 @@ export default function AlignmentSystemHeroSection() {
           <Typography
             variant="h5"
             as="p"
-            className="mt-3 text-[clamp(18px,2.2vw,28px)] font-[800] leading-[131%] text-white sm:mt-4"
+            className="mt-3 text-[20px] font-[800] leading-[131%] text-white md:text-[clamp(18px,2.2vw,28px)] sm:mt-4"
           >
             {subheading}
           </Typography>
