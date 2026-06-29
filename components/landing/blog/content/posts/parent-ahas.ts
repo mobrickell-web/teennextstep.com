@@ -1,3 +1,4 @@
+import { BLOG_FOOTER_CTA } from "@/components/landing/blog/content/blog-footer-cta";
 import type { BlogPost } from "@/components/landing/blog/types";
 import {
   BLOG_PARENT_AHAS_CHANGES_ALT,
@@ -504,21 +505,5 @@ export const PARENT_AHAS_POST: BlogPost = {
       ],
     },
   ],
-  footerCta: {
-    primary: {
-      label: "Get Your FREE Roadmap for Your Teen's Success",
-      href: "/free-parent-insight",
-      caption: "Takes 3–5 minutes • Instant results • See what may need attention",
-    },
-    secondary: {
-      label: "Learn More About Our Alignment System",
-      href: "/parent-teen-alignment-system",
-      caption: "Clarity and better decisions start with alignment and guided support",
-    },
-    tertiary: {
-      label: "View All Parent Resources",
-      href: "/#blog",
-      caption: "",
-    },
-  },
+  footerCta: BLOG_FOOTER_CTA,
 };
