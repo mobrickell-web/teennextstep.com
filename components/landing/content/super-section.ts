@@ -19,8 +19,7 @@ export const SUPER_SECTION_CONTENT = {
   ],
   primaryCta: {
     label: "Get Your FREE Parent Insight on Your Role in Your Teen's Future",
-    /** Placeholder until FREE Parent Insight landing page URL is finalized */
-    href: "#",
+    href: "/free-parent-insight",
     caption: "Takes 3–5 minutes • Instant results • See what may need attention",
   },
   secondaryCta: {

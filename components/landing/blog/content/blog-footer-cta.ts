@@ -3,7 +3,7 @@ import type { BlogPostFooterCta } from "@/components/landing/blog/types";
 export const BLOG_FOOTER_CTA: BlogPostFooterCta = {
   primary: {
     label: "Get Your FREE Parent Insight on Your Role in Your Teen's Future",
-    href: "#",
+    href: "/free-parent-insight",
     caption: "Takes 3–5 minutes • Instant results • See what may need attention",
   },
   secondary: {

@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { LandingSectionNumber } from "@/components/landing/LandingSectionNumber";
+import { LandingCtaBlock } from "@/components/landing/LandingCtaBlock";
 import {
   LANDING_SECTION_HEADING_PRIMARY,
   LANDING_SECTION_TAGLINE_CLASS,
@@ -32,6 +33,8 @@ export default function DifferentPathsSection() {
     subheading,
     asideParagraphs,
     bodyParagraphs,
+    primaryCta,
+    secondaryCta,
   } = DIFFERENT_PATHS_SECTION_CONTENT;
 
   return (
@@ -101,6 +104,29 @@ export default function DifferentPathsSection() {
                 {renderSegments(segments)}
               </Typography>
             ))}
+          </div>
+
+          <div className="relative z-10 mt-10 flex w-full flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-4 lg:mt-12 lg:gap-5">
+            <LandingCtaBlock
+              href={primaryCta.href}
+              label={primaryCta.label}
+              caption={primaryCta.caption}
+              variant="primary"
+              theme="light"
+              className="w-full sm:w-fit"
+              labelClassName="w-full rounded-[7.55px] text-[14px] font-[800] leading-[160%] tracking-[-0.012em] sm:w-fit sm:text-[20.12px]"
+              captionClassName="text-[13px] font-normal leading-snug tracking-normal text-[#1B2A49] sm:text-[15.09px] sm:leading-[30.18px]"
+            />
+            <LandingCtaBlock
+              href={secondaryCta.href}
+              label={secondaryCta.label}
+              caption={secondaryCta.caption}
+              variant="secondary"
+              theme="light"
+              className="w-full sm:w-fit"
+              labelClassName="w-full rounded-[7.55px] border-primary bg-white text-[14px] font-[800] leading-[160%] tracking-[-0.012em] text-primary hover:bg-primary/5 sm:w-fit sm:bg-transparent sm:text-[20.12px]"
+              captionClassName="text-[13px] font-normal capitalize leading-snug tracking-normal text-primary sm:text-[15.09px] sm:leading-[30.18px]"
+            />
           </div>
         </div>
       </div>

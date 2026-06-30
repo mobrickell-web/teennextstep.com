@@ -313,7 +313,7 @@ export const MOTIVATION_CRISIS_POST: BlogPost = {
           paragraphs: [
             [
               {
-                text: "Motivation Instead of jumping to decisions, introduce a simple structure that helps: when a teen feels:",
+                text: "Instead of jumping to decisions, help your teen follow a simple process:",
               },
             ],
           ],

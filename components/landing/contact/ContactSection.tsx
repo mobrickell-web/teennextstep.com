@@ -1,10 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
-import { LANDING_SECTION_HEADING_SIZE } from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
 
 import { CONTACT_CONTENT } from "@/components/landing/contact/content/contact-section";
@@ -21,7 +19,6 @@ export default function ContactSection() {
     formImageAlt,
     fields,
     submitLabel,
-    ambassador,
   } = CONTACT_CONTENT;
 
   return (
@@ -158,34 +155,6 @@ export default function ContactSection() {
               className="object-cover"
             />
           </div>
-        </div>
-
-        {/* Ambassador applicants */}
-        <div className="mt-12 lg:mt-14">
-          <Typography
-            as="h2"
-            className={`${LANDING_SECTION_HEADING_SIZE} font-[800] leading-[110%] text-[#194783]`}
-          >
-            {ambassador.heading}
-          </Typography>
-          <Typography
-            as="p"
-            className="mt-3 text-[clamp(20px,2.8vw,34.62px)] font-[800] leading-[110%] text-black"
-          >
-            {ambassador.subheading}
-          </Typography>
-          <Typography
-            as="p"
-            className="mt-3 text-[clamp(16px,2vw,26.01px)] font-medium leading-[124%] text-[#194783]"
-          >
-            {ambassador.linkPrefix}
-            <Link
-              href={ambassador.linkHref}
-              className="underline underline-offset-2 hover:text-[#194783]/80"
-            >
-              {ambassador.linkLabel}
-            </Link>
-          </Typography>
         </div>
       </div>
     </section>

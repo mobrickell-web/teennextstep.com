@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { LANDING_HERO_HEADING_SIZE } from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
 
 import {
@@ -8,13 +9,13 @@ import {
 } from "@/components/landing/referral-program/content/referral-program-section";
 
 export default function ReferralProgramHeroSection() {
-  const { heading } = REFERRAL_PROGRAM_HERO;
+  const { heading, overviewHeading, description } = REFERRAL_PROGRAM_HERO;
 
   return (
     <section
       id="referral-program"
       aria-labelledby="referral-program-heading"
-      className="relative flex min-h-[320px] w-full items-center overflow-hidden sm:min-h-[310px] lg:min-h-[310px] xl:min-h-[350px]"
+      className="relative flex min-h-[320px] w-full items-center overflow-hidden sm:min-h-[360px] lg:min-h-[400px] xl:min-h-[440px]"
     >
       <div className="absolute inset-0">
         <Image
@@ -34,9 +35,26 @@ export default function ReferralProgramHeroSection() {
             id="referral-program-heading"
             variant="h1"
             as="h1"
-            className="text-[20px] font-[800] leading-[131%] text-white md:text-[clamp(24px,3.6vw,48px)]"
+            className={`${LANDING_HERO_HEADING_SIZE} font-[800] leading-[131%] text-white`}
           >
             {heading}
+          </Typography>
+
+          <Typography
+            id="referral-program-overview-heading"
+            variant="h2"
+            as="h2"
+            className="mt-4 text-[20px] font-[800] leading-[131%] text-white md:text-[clamp(18px,2.2vw,28px)] sm:mt-5"
+          >
+            {overviewHeading}
+          </Typography>
+
+          <Typography
+            variant="body-regular"
+            as="p"
+            className="mx-auto mt-3 max-w-4xl text-[clamp(15px,1.6vw,20px)] font-normal leading-[131%] text-white sm:mt-4"
+          >
+            {description}
           </Typography>
         </div>
       </div>

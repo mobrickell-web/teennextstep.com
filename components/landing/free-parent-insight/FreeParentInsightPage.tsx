@@ -1,11 +1,5 @@
-import ParentInsightHeroSection from "./ParentInsightHeroSection";
-import ParentInsightAssessmentSection from "./ParentInsightAssessmentSection";
+import ParentInsightIntroSection from "./ParentInsightIntroSection";
 
 export default function FreeParentInsightPage() {
-  return (
-    <>
-      <ParentInsightHeroSection />
-      <ParentInsightAssessmentSection />
-    </>
-  );
+  return <ParentInsightIntroSection />;
 }

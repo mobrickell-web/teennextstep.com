@@ -33,11 +33,4 @@ export const CONTACT_CONTENT = {
     message: { name: "message", placeholder: "Message" },
   },
   submitLabel: "Send Message",
-  ambassador: {
-    heading: "Ambassador Applicants (separate path)",
-    subheading: "Interested in becoming a Teen Next Step Ambassador?",
-    linkPrefix: "👉 ",
-    linkLabel: "Please visit our Careers page to apply.",
-    linkHref: "/careers",
-  },
 } as const;

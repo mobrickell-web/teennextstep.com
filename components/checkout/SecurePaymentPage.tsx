@@ -9,30 +9,38 @@ import { cn } from "@/lib/utils";
 
 import { SECURE_PAYMENT_CONTENT } from "@/components/checkout/content/secure-payment-content";
 
-const SETS_ICON = "/images/landing-page/sets-icon.svg";
+const TICK_ICON =
+  "/images/landing-page/secure-your-teens-next-step/tick.svg";
 const LOGOS_IMAGE = "/images/landing-page/secure-your-teens-next-step/logos-image.png";
 
 function CheckItem({
   children,
+  number,
   className,
 }: {
   children: ReactNode;
+  number: number;
   className?: string;
 }) {
   return (
     <li className={cn("flex gap-2.5", className)}>
       <Image
-        src={SETS_ICON}
+        src={TICK_ICON}
         alt=""
-        width={14}
-        height={15}
+        width={19}
+        height={17}
         aria-hidden
         className="mt-1 shrink-0"
       />
-      <span>{children}</span>
+      <span className="mt-0.5 shrink-0 font-[500] text-primary">{number}.</span>
+      <span className="text-primary">{children}</span>
     </li>
   );
 }
+
+const CARD_FIELD_BASE =
+  "h-full min-w-0 rounded-none border-0 bg-[#F9F7F7] px-3 shadow-none focus-visible:ring-0";
+const PAYMENT_INPUT_BG = "bg-[#F9F7F7]";
 
 function PolicyItem({
   heading,
@@ -42,31 +50,31 @@ function PolicyItem({
   children: ReactNode;
 }) {
   return (
-    <div className="flex gap-2.5">
-      <Image
-        src={SETS_ICON}
-        alt=""
-        width={14}
-        height={15}
-        aria-hidden
-        className="mt-1 shrink-0"
-      />
-      <div className="space-y-1">
+    <div className="space-y-1">
+      <div className="flex items-center gap-2.5">
+        <Image
+          src={TICK_ICON}
+          alt=""
+          width={19}
+          height={17}
+          aria-hidden
+          className="shrink-0"
+        />
         <Typography
           variant="body-semibold"
           as="p"
-          className="text-sm font-[800] text-primary sm:text-base"
+          className="text-sm font-[800] leading-[131%] text-primary sm:text-base"
         >
           {heading}
         </Typography>
-        <Typography
-          variant="body-regular"
-          as="div"
-          className="text-sm leading-relaxed text-foreground sm:text-base"
-        >
-          {children}
-        </Typography>
       </div>
+      <Typography
+        variant="body-regular"
+        as="div"
+        className="pl-[29px] text-sm leading-relaxed text-foreground sm:text-base"
+      >
+        {children}
+      </Typography>
     </div>
   );
 }
@@ -87,26 +95,30 @@ export default function SecurePaymentPage() {
 
         <div className="mx-auto mt-8 w-full max-w-[1350px] rounded-[12px] bg-white px-5 py-8 sm:mt-10 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
           <section className="space-y-5 border-b border-[#D9D9D9] pb-8">
-            <Typography
-              variant="h3"
-              as="h2"
-              className="text-[clamp(18px,2.2vw,24px)] font-[800] leading-[131%] text-primary"
-            >
-              {product.heading}
-            </Typography>
+            <div className="space-y-2 border-b border-[#D9D9D9] pb-5">
+              <Typography
+                variant="h3"
+                as="h2"
+                className="text-[clamp(18px,2.2vw,24px)] font-[800] leading-[131%] text-primary"
+              >
+                {product.heading}
+              </Typography>
 
-            <Typography
-              variant="muted-sm"
-              as="p"
-              className="text-sm leading-relaxed text-grey-text sm:text-base"
-            >
-              {product.subheading}
-            </Typography>
+              <Typography
+                variant="muted-sm"
+                as="p"
+                className="text-sm leading-relaxed text-grey-text sm:text-base"
+              >
+                {product.subheading}
+              </Typography>
+            </div>
 
             <div className="grid gap-6 lg:grid-cols-[1fr_340px] lg:items-start lg:gap-8 xl:grid-cols-[1fr_380px]">
-              <ul className="space-y-2.5 text-[18px] font-medium text-foreground">
-                {product.features.map((feature) => (
-                  <CheckItem key={feature}>{feature}</CheckItem>
+              <ul className="space-y-2.5 text-[18px] font-medium">
+                {product.features.map((feature, index) => (
+                  <CheckItem key={feature} number={index + 1}>
+                    {feature}
+                  </CheckItem>
                 ))}
               </ul>
 
@@ -149,7 +161,7 @@ export default function SecurePaymentPage() {
               {payment.heading}
             </Typography>
 
-            <div className="overflow-hidden rounded-[8px] border border-[#d8d8d8] bg-[#fafafa]">
+            <div className="overflow-hidden rounded-[8px] border border-[#d8d8d8] bg-[#F9F7F7]">
               <div className="flex w-full flex-wrap items-center justify-between gap-3 border-b border-[#e5e5e5] px-4 py-4 sm:px-6">
                 <div className="flex items-center gap-2">
                   <Image
@@ -187,29 +199,37 @@ export default function SecurePaymentPage() {
               </div>
 
               <form className="space-y-4 p-4 sm:p-6" onSubmit={(e) => e.preventDefault()}>
-                <div className="flex flex-col gap-2 sm:flex-row">
+                <div className="flex h-12 items-stretch overflow-hidden rounded-lg border border-[#d8d8d8] bg-[#F9F7F7] focus-within:ring-1 focus-within:ring-ring">
                   <Input
                     id="card-number"
                     name="cardNumber"
                     placeholder={payment.fields.cardNumber}
                     autoComplete="cc-number"
-                    className="sm:flex-1"
+                    className={cn(CARD_FIELD_BASE, "flex-1")}
                     aria-label={payment.fields.cardNumber}
                   />
+                  <div className="w-px shrink-0 bg-[#d8d8d8]" aria-hidden />
                   <Input
                     id="card-expiry"
                     name="cardExpiry"
                     placeholder={payment.fields.expiry}
                     autoComplete="cc-exp"
-                    className="sm:w-28 sm:shrink-0"
+                    className={cn(
+                      CARD_FIELD_BASE,
+                      "w-[5.75rem] shrink-0 px-2 text-center placeholder:text-center sm:w-28",
+                    )}
                     aria-label={payment.fields.expiry}
                   />
+                  <div className="w-px shrink-0 bg-[#d8d8d8]" aria-hidden />
                   <Input
                     id="card-cvc"
                     name="cardCvc"
                     placeholder={payment.fields.cvc}
                     autoComplete="cc-csc"
-                    className="sm:w-24 sm:shrink-0"
+                    className={cn(
+                      CARD_FIELD_BASE,
+                      "w-[4.5rem] shrink-0 px-2 text-center placeholder:text-center sm:w-24",
+                    )}
                     aria-label={payment.fields.cvc}
                   />
                 </div>
@@ -221,6 +241,7 @@ export default function SecurePaymentPage() {
                     type="email"
                     placeholder={payment.fields.email}
                     autoComplete="email"
+                    className={PAYMENT_INPUT_BG}
                     aria-label={payment.fields.email}
                   />
                   <Input
@@ -228,16 +249,20 @@ export default function SecurePaymentPage() {
                     name="fullName"
                     placeholder={payment.fields.fullName}
                     autoComplete="name"
+                    className={PAYMENT_INPUT_BG}
                     aria-label={payment.fields.fullName}
                   />
                 </div>
 
-                <div className="relative h-12 w-full overflow-hidden rounded-lg border border-[#d8d8d8] bg-[#f5f5f5] focus-within:ring-1 focus-within:ring-ring">
+                <div className="relative h-12 w-full overflow-hidden rounded-lg border border-[#d8d8d8] bg-[#F9F7F7] focus-within:ring-1 focus-within:ring-ring">
                   <Input
                     id="discount-code"
                     name="discountCode"
                     placeholder={payment.fields.discountCode}
-                    className="h-full w-full rounded-lg border-0 bg-transparent pr-[5.75rem] shadow-none focus-visible:ring-0"
+                    className={cn(
+                      "h-full w-full rounded-lg border-0 pr-[5.75rem] shadow-none focus-visible:ring-0",
+                      PAYMENT_INPUT_BG,
+                    )}
                     aria-label={payment.fields.discountCode}
                   />
                   <button

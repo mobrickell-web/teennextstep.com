@@ -1,3 +1,5 @@
+import { SUPER_SECTION_CONTENT } from "@/components/landing/content/super-section";
+
 export type RichSegment = {
   text: string;
   bold?: boolean;
@@ -66,4 +68,6 @@ export const DIFFERENT_PATHS_SECTION_CONTENT = {
       },
     ],
   ],
+  primaryCta: SUPER_SECTION_CONTENT.primaryCta,
+  secondaryCta: SUPER_SECTION_CONTENT.secondaryCta,
 } as const;
