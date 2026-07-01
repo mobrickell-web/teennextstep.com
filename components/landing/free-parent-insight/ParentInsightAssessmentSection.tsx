@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import {
   PARENT_INSIGHT_ASSESSMENT_CONTENT,
   PARENT_INSIGHT_DASHBOARD_IMAGE,
+  type ParentInsightAssessmentContent,
 } from "@/components/landing/free-parent-insight/content/assessment-section";
 
 const RATING_VALUES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as const;
@@ -109,9 +110,15 @@ function RatingScaleRow({
   );
 }
 
-export default function ParentInsightAssessmentSection() {
-  const { header, scaleLabels, categories, resultsForm } =
-    PARENT_INSIGHT_ASSESSMENT_CONTENT;
+export default function ParentInsightAssessmentSection({
+  content = PARENT_INSIGHT_ASSESSMENT_CONTENT,
+  sectionId = "parent-insight-assessment",
+}: {
+  content?: ParentInsightAssessmentContent;
+  sectionId?: string;
+}) {
+  const { header, scaleLabels, categories, resultsForm } = content;
+  const headingId = `${sectionId}-heading`;
 
   const [ratings, setRatings] = useState<RatingsState>({});
 
@@ -125,15 +132,15 @@ export default function ParentInsightAssessmentSection() {
 
   return (
     <section
-      id="parent-insight-assessment"
-      aria-labelledby="parent-insight-assessment-heading"
+      id={sectionId}
+      aria-labelledby={headingId}
       className="w-full bg-white"
     >
       <div className="w-full px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14 xl:px-10">
         <div className={cn(assessmentSectionWidthClass, "space-y-10 sm:space-y-12")}>
           <div className="space-y-3 text-center sm:space-y-4">
             <Typography
-              id="parent-insight-assessment-heading"
+              id={headingId}
               variant="h2"
               as="h2"
               className={`${LANDING_CONTENT_HEADING_SIZE_LG} font-[800] leading-[131%] text-secondary`}
@@ -147,14 +154,6 @@ export default function ParentInsightAssessmentSection() {
               className="text-base font-[800] text-secondary sm:text-lg"
             >
               {header.scaleLegend}
-            </Typography>
-
-            <Typography
-              variant="body-regular"
-              as="p"
-              className="w-full text-sm font-semibold leading-relaxed text-destructive sm:text-base"
-            >
-              {header.finalNote}
             </Typography>
           </div>
 

@@ -13,14 +13,7 @@ export default function BackToTopButton() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
 
-  const isHomePage = pathname === "/";
-
   useEffect(() => {
-    if (!isHomePage) {
-      setVisible(false);
-      return;
-    }
-
     const onScroll = () => {
       setVisible(window.scrollY > SCROLL_THRESHOLD);
     };
@@ -28,11 +21,7 @@ export default function BackToTopButton() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isHomePage]);
-
-  if (!isHomePage) {
-    return null;
-  }
+  }, [pathname]);
 
   return (
     <button

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUp } from "lucide-react";
 
 import { Logo } from "@/components/brand/Logo";
 import { Typography } from "@/components/ui/typography";
@@ -14,7 +13,6 @@ import {
   FOOTER_SOCIAL_LINKS,
   FOOTER_TAGLINE,
 } from "@/lib/config/footer";
-import { scrollToTop } from "@/lib/scroll-to-top";
 import { cn } from "@/lib/utils";
 
 const footerLinkClass =
@@ -22,7 +20,6 @@ const footerLinkClass =
 
 export default function Footer() {
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
   const hasParentInsightSidebar = pathname.startsWith("/dashboard/parent-insight");
   const quickLinksFirstColumn = FOOTER_QUICK_LINKS.slice(0, 5);
   const quickLinksSecondColumn = FOOTER_QUICK_LINKS.slice(5);
@@ -129,7 +126,7 @@ export default function Footer() {
             </ol>
           </div>
 
-          <div className="flex flex-col justify-between gap-6">
+          <div>
             <ul className="space-y-2">
               {FOOTER_SECONDARY_LINKS.map((link) => (
                 <li key={link.label}>
@@ -145,17 +142,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-
-            {!isHomePage && (
-              <button
-                type="button"
-                onClick={scrollToTop}
-                aria-label="Back to top"
-                className="ml-auto flex size-10 items-center justify-center rounded-[4px] border border-white bg-white text-primary transition-colors hover:bg-white/90"
-              >
-                <ArrowUp className="size-5" aria-hidden />
-              </button>
-            )}
           </div>
         </div>
 

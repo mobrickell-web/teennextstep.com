@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import {
   LANDING_CONTENT_HEADING_SIZE_LG,
@@ -8,6 +7,7 @@ import {
 import { Typography } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
+import ParentInsightAgeGroupSelection from "@/components/landing/free-parent-insight/ParentInsightAgeGroupSelection";
 import {
   PARENT_INSIGHT_INTRO_CONTENT,
 } from "@/components/landing/free-parent-insight/content/intro-section";
@@ -477,73 +477,7 @@ export default function ParentInsightIntroSection() {
             </div>
           </article>
 
-          <article className="space-y-8 sm:space-y-10">
-            <div className="space-y-2 text-center">
-              <Typography
-                variant="h2"
-                as="h2"
-                className={`${LANDING_CONTENT_HEADING_SIZE_LG} font-[800] leading-[131%] text-primary`}
-              >
-                {ageGroupSelection.number}. {ageGroupSelection.title}
-              </Typography>
-
-              <Typography variant="body-regular" as="p" className={BODY_CLASS}>
-                {ageGroupSelection.subtitle}
-              </Typography>
-            </div>
-
-            <div className="grid w-full gap-6 sm:grid-cols-2 md:gap-8 lg:gap-10">
-              {ageGroupSelection.ageGroups.map((group) => (
-                <article
-                  key={group.id}
-                  className="flex h-full flex-col overflow-hidden rounded-lg border p-1 bg-secondary border-secondary"
-                >
-                  <div className="relative aspect-[4/3] w-full sm:aspect-[5/4]">
-                    <Image
-                      src={group.image.src}
-                      alt={group.image.alt}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                      className="object-cover object-center rounded-lg"
-                    />
-                  </div>
-
-                  <div className="flex flex-1 flex-col items-center bg-secondary px-5 py-6 text-center sm:px-6 sm:py-8">
-                    <Typography
-                      variant="body-semibold"
-                      as="h3"
-                      className="text-[clamp(16px,1.8vw,20px)] font-[800] leading-[140%] text-black"
-                    >
-                      {group.title}
-                    </Typography>
-
-                    <Typography
-                      variant="body-regular"
-                      as="p"
-                      className={`mt-3 ${BODY_CLASS}`}
-                    >
-                      {group.description}
-                    </Typography>
-
-                    <Link
-                      href={group.href}
-                      className="mt-5 inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 text-center text-[clamp(14px,1.5vw,16px)] font-[800] leading-[140%] text-white transition-colors hover:bg-primary/90"
-                    >
-                      {group.buttonLabel}
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            <Typography
-              variant="body-regular"
-              as="p"
-              className="text-center text-[clamp(15px,1.7vw,18px)] font-medium leading-[140%] text-destructive"
-            >
-              {ageGroupSelection.footer}
-            </Typography>
-          </article>
+          <ParentInsightAgeGroupSelection section={ageGroupSelection} />
         </div>
       </div>
     </section>

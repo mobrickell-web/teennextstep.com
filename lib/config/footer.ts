@@ -16,12 +16,12 @@ export const FOOTER_QUICK_LINKS = [
   { label: "What Parents Often Discover", href: "/#parents-discover" },
   { label: "Blog", href: "/#blog" },
   { label: "FAQ's", href: "/#faq" },
-  { label: "Teen Insight Overview", href: "/signup" },
+  { label: "Teen Insight Overview", href: "/teen-insight-overview" },
 ] as const;
 
 export const FOOTER_SECONDARY_LINKS = [
-  { label: "TEEN NEXT STEP Overview", href: "/parent-teen-alignment-system" },
-  { label: "Our Team", href: "/#contact" },
+  { label: "TEEN NEXT STEP Overview", href: "/teen-next-step-overview" },
+  { label: "Our Team", href: "/our-team" },
   { label: "Client Referral Program", href: "/referral-program" },
   { label: "Careers", href: "/careers" },
   { label: "Terms & Privacy", href: "/terms-privacy" },

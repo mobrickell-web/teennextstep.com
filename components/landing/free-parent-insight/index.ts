@@ -1,7 +1,11 @@
 export { default as FreeParentInsightPage } from "./FreeParentInsightPage";
+export { default as ParentInsightAges1315Page } from "./ParentInsightAges1315Page";
+export { default as ParentInsightAges1619Page } from "./ParentInsightAges1619Page";
 export { default as ParentInsightIntroSection } from "./ParentInsightIntroSection";
 export { default as ParentInsightHeroSection } from "./ParentInsightHeroSection";
 export { default as ParentInsightAssessmentSection } from "./ParentInsightAssessmentSection";
 export * from "./content/intro-section";
 export * from "./content/hero-section";
+export * from "./content/hero-section-16-19";
 export * from "./content/assessment-section";
+export * from "./content/assessment-section-16-19";

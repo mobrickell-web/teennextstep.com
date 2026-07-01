@@ -1,12 +1,50 @@
 export const PARENT_INSIGHT_DASHBOARD_IMAGE =
   "/images/landing-page/free-parent-insight/dashboard.png";
 
+export type ParentInsightAssessmentContent = {
+  header: {
+    title: string;
+    scaleLegend: string;
+    finalNoteLabel?: string;
+    finalNoteBody?: string;
+  };
+  scaleLabels: {
+    low: string;
+    high: string;
+  };
+  categories: readonly {
+    id: string;
+    title: string;
+    statements: readonly string[];
+  }[];
+  resultsForm: {
+    heading: string;
+    description: string;
+    fields: readonly {
+      id: string;
+      label: string;
+      placeholder: string;
+      type: string;
+      required: boolean;
+    }[];
+    submitLabel: string;
+    privacyText: string;
+    privacyLinkLabel: string;
+    privacyHref: string;
+    image: {
+      src: string;
+      alt: string;
+    };
+  };
+};
+
 export const PARENT_INSIGHT_ASSESSMENT_CONTENT = {
   header: {
     title: "Please Rate Each Statement From 1 To 10",
     scaleLegend: "(1 = Strongly Disagree • 10 = Strongly Agree)",
-    finalNote:
-      "FINAL NOTE: The Parent Insight Statement scores measure how you, the parent, believe you are guiding your teen—not your teen's behavior directly nor the alignment between you and your teen.",
+    finalNoteLabel: "FINAL NOTE:",
+    finalNoteBody:
+      "The Parent Insight Statement scores measure how you, the parent, believe you are guiding your teen—not your teen's behavior directly nor the alignment between you and your teen.",
   },
   scaleLabels: {
     low: "Low",
@@ -17,7 +55,7 @@ export const PARENT_INSIGHT_ASSESSMENT_CONTENT = {
       id: "responsibility",
       title: "1. Responsibility (Guidance)",
       statements: [
-        "I feel my teen is taking on just the right amount of responsibility for their age.",
+        "I clearly communicate expectations around responsibility to my teen.",
         "I consistently hold my teen accountable for their responsibilities.",
       ],
     },
@@ -26,7 +64,7 @@ export const PARENT_INSIGHT_ASSESSMENT_CONTENT = {
       title: "2. Motivation (Guidance)",
       statements: [
         "I actively encourage my teen to stay motivated and pursue meaningful goals.",
-        "I help my teen understand the importance of effort and perseverance.",
+        "I help my teen understand the importance of effort and persistence.",
       ],
     },
     {
@@ -34,7 +72,7 @@ export const PARENT_INSIGHT_ASSESSMENT_CONTENT = {
       title: "3. Communication (Guidance)",
       statements: [
         "I create an environment where my teen feels comfortable communicating with me.",
-        "I listen to my teen in a way that helps them feel heard and understood.",
+        "I listen to my teen in a way that helps them feel heard and understood",
       ],
     },
     {
@@ -49,24 +87,24 @@ export const PARENT_INSIGHT_ASSESSMENT_CONTENT = {
       id: "confidence",
       title: "5. Confidence (Guidance)",
       statements: [
-        "I support my teen in building self-esteem through encouragement and feedback.",
-        "I help my teen learn from setbacks without feeling discouraged.",
+        "I support my teen in building confidence through encouragement and feedback",
+        "I help my teen learn from setbacks without losing confidence.",
       ],
     },
     {
       id: "decision-making",
       title: "6. Decision Making (Guidance)",
       statements: [
-        "I guide my teen in thinking through choices rather than making choices for them.",
-        "I help my teen understand the long-term impact of making important decisions.",
+        "I guide my teen in thinking through decisions rather than making choices for them.",
+        "I help my teen understand consequences before making important decisions.",
       ],
     },
     {
       id: "discipline",
       title: "7. Discipline (Guidance)",
       statements: [
-        "I reinforce consistent rules and routines for my teen.",
-        "I follow through on consequences and expectations.",
+        "I reinforce consistent habits and routines for my teen.",
+        "I follow through on boundaries and expectations I set.",
       ],
     },
     {

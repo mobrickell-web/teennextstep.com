@@ -1,26 +1,16 @@
-export const PARENT_INSIGHT_HERO_IMAGE =
-  "/images/landing-page/free-parent-insight/free-parent-insight-age-thirteen.png";
+import type { ParentInsightHeroTextSegment } from "@/components/landing/free-parent-insight/content/hero-section";
 
-export type ParentInsightHeroTextSegment = {
-  text: string;
-  breakBefore?: boolean;
-};
+export const PARENT_INSIGHT_1619_HERO_IMAGE =
+  "/images/landing-page/free-parent-insight/free-parent-insight-age-sixteen.png";
 
-export type ParentInsightHeroContent = {
-  heading: string;
-  description: ParentInsightHeroTextSegment[];
-  heading2: string;
-  paragraphs: ParentInsightHeroTextSegment[][];
-};
-
-export const PARENT_INSIGHT_HERO_CONTENT = {
-  heading: "FREE Parent Insight (Ages 13–15)",
+export const PARENT_INSIGHT_1619_HERO_CONTENT = {
+  heading: "FREE Parent Insight (Ages 16–19)",
   description: [
     {
-      text: "This quick Parent Insight highlights areas that may benefit from attention as your teen develops direction,",
+      text: "This quick Parent Insight highlights areas that may need attention as your teen prepares for important",
     },
     {
-      text: "awareness, and readiness for the future.",
+      text: "education and career decisions.",
       breakBefore: true,
     },
   ] satisfies ParentInsightHeroTextSegment[],

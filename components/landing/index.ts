@@ -41,4 +41,7 @@ export * from "./teen-statement";
 export * from "./terms";
 export * from "./careers";
 export * from "./referral-program";
+export * from "./our-team";
+export * from "./teen-insight-overview";
+export * from "./teen-next-step-overview";
 export * from "./blog";

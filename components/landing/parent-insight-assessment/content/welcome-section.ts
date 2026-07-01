@@ -80,11 +80,11 @@ export const PARENT_INSIGHT_WELCOME_CONTENT = {
     options: [
       {
         label: "My teen is 13 to 15 years of age",
-        href: "/signup?age=13-15",
+        href: "/parent-insight-13-15",
       },
       {
         label: "My teen is 16 to 19 years of age",
-        href: "/signup?age=16-19",
+        href: "/parent-insight-16-19",
       },
     ],
   },

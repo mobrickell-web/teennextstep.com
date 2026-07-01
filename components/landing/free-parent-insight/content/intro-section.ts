@@ -201,7 +201,9 @@ export const PARENT_INSIGHT_INTRO_CONTENT = {
           description:
             "Focus on development, communication, early direction, and building a strong foundation.",
           buttonLabel: "Start Parent Insight Ages 13–15",
-          href: "/signup?age=13-15",
+          href: "/parent-insight-13-15",
+          confirmMessage:
+            "Are you sure you want to proceed with the Ages 13 to 15?",
         },
         {
           id: "16-19",
@@ -213,7 +215,9 @@ export const PARENT_INSIGHT_INTRO_CONTENT = {
           description:
             "Focus on direction, readiness, communication, and upcoming education or career decisions.",
           buttonLabel: "Start Parent Insight Ages 16–19",
-          href: "/signup?age=16-19",
+          href: "/parent-insight-16-19",
+          confirmMessage:
+            "Are you sure you want to proceed with the Ages 16 to 19?",
         },
       ],
     },

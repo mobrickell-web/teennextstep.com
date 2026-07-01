@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Fragment } from "react";
 
 import { LANDING_HERO_HEADING_SIZE } from "@/components/landing/landing-styles";
 import { Typography } from "@/components/ui/typography";
@@ -6,21 +7,45 @@ import { Typography } from "@/components/ui/typography";
 import {
   PARENT_INSIGHT_HERO_CONTENT,
   PARENT_INSIGHT_HERO_IMAGE,
+  type ParentInsightHeroContent,
+  type ParentInsightHeroTextSegment,
 } from "@/components/landing/free-parent-insight/content/hero-section";
 
-export default function ParentInsightHeroSection() {
-  const { heading, description, heading2, paragraphs } =
-    PARENT_INSIGHT_HERO_CONTENT;
+const BODY_CLASS =
+  "text-[clamp(15px,1.6vw,20px)] font-normal leading-[131%] text-white";
+
+function renderSegments(segments: ParentInsightHeroTextSegment[]) {
+  return segments.map((segment, index) => (
+    <Fragment key={index}>
+      {segment.breakBefore && <br />}
+      {segment.text}
+    </Fragment>
+  ));
+}
+
+type ParentInsightHeroSectionProps = {
+  content?: ParentInsightHeroContent;
+  image?: string;
+  sectionId?: string;
+};
+
+export default function ParentInsightHeroSection({
+  content = PARENT_INSIGHT_HERO_CONTENT,
+  image = PARENT_INSIGHT_HERO_IMAGE,
+  sectionId = "parent-insight-hero",
+}: ParentInsightHeroSectionProps) {
+  const { heading, description, heading2, paragraphs } = content;
+  const headingId = `${sectionId}-heading`;
 
   return (
     <section
-      id="parent-insight-hero"
-      aria-labelledby="parent-insight-hero-heading"
+      id={sectionId}
+      aria-labelledby={headingId}
       className="relative flex min-h-[320px] w-full items-center overflow-hidden sm:min-h-[360px] lg:min-h-[440px] xl:min-h-[500px]"
     >
       <div className="absolute inset-0">
         <Image
-          src={PARENT_INSIGHT_HERO_IMAGE}
+          src={image}
           alt=""
           fill
           priority
@@ -33,7 +58,7 @@ export default function ParentInsightHeroSection() {
       <div className="relative z-10 w-full px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12 xl:px-10">
         <div className="w-full rounded-[12px] bg-[#FFFFFF33] px-6 py-6 text-center backdrop-blur-[2px] sm:px-10 sm:py-8 lg:px-14 lg:py-10">
           <Typography
-            id="parent-insight-hero-heading"
+            id={headingId}
             variant="h1"
             as="h1"
             className={`${LANDING_HERO_HEADING_SIZE} font-[800] leading-[131%] text-white`}
@@ -41,31 +66,27 @@ export default function ParentInsightHeroSection() {
             {heading}
           </Typography>
 
-          <Typography
-            variant="body-regular"
-            as="p"
-            className="mt-4 text-[clamp(15px,1.6vw,20px)] font-normal leading-[131%] text-white sm:mt-5"
-          >
-            {description}
+          <Typography variant="body-regular" as="p" className={`mt-4 sm:mt-5 ${BODY_CLASS}`}>
+            {renderSegments([...description])}
           </Typography>
 
           <Typography
             variant="h5"
             as="h2"
-            className="mt-5 text-[20px] font-[800] leading-[131%] text-white md:text-[clamp(18px,2.2vw,28px)] sm:mt-6"
+            className="mt-5 text-[20px] font-[800] leading-[131%] text-white sm:mt-6 md:text-[clamp(18px,2.2vw,28px)]"
           >
             {heading2}
           </Typography>
 
           <div className="mt-4 space-y-4 sm:mt-5">
-            {paragraphs.map((paragraph) => (
+            {paragraphs.map((segments, index) => (
               <Typography
-                key={paragraph}
+                key={index}
                 variant="body-regular"
                 as="p"
-                className="text-[clamp(15px,1.6vw,20px)] font-normal leading-[131%] text-white"
+                className={BODY_CLASS}
               >
-                {paragraph}
+                {renderSegments([...segments])}
               </Typography>
             ))}
           </div>
